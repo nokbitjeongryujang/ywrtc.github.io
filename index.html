@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>오늘의 메시지</title>
+  <title>콩비 도서관</title> 
   <!-- 나눔명조 웹폰트 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/NanumMyeongjo.woff2" as="font" type="font/woff2" crossorigin>
   <style>
@@ -21,15 +21,12 @@
     }
 
     .background-image {
-      background: url('https://i.postimg.cc/V0qXJfgd/bg.jpg') no-repeat center center;
-      transform: scale(4);
-      transform-origin: center center;
       position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 1024px;
-      height: 559px;
-      pointer-events: none;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
       z-index: 0;
     }
 
@@ -37,7 +34,7 @@
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      bottom: 150px;
+      bottom: 75px;
       width: 120px;
       cursor: pointer;
       z-index: 2;
@@ -110,14 +107,14 @@
 
       .icon-button {
         width: 80px;
-        bottom: 120px;
+        bottom: 60px;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="background-image"></div>
+  <img class="background-image" src="https://i.postimg.cc/zV2bj2Bd/bg.jpg" alt="배경 이미지" />
 
   <!-- 아이콘 버튼 -->
   <img
