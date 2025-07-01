@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <title>오늘의 메시지</title>
+  <meta charset="UTF-8">
+  <title>
+오늘의 메시지</title>
   <!-- 나눔명조 웹폰트 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/NanumMyeongjo.woff2" as="font" type="font/woff2" crossorigin>
   <style>
@@ -12,10 +13,8 @@
       width: 100vw;
       height: 100vh;
       font-family: 'NanumMyeongjo', serif;
-      background: #0a0813 url('https://i.postimg.cc/V0qXJfgd/bg.jpg') no-repeat center center;
-      background-size: 1024px 559px;
-      background-repeat: no-repeat;
-      background-position: center;
+      background: #0a0813 url('https://i.postimg.cc/sBCQhdBW/bg-2560x1440.jpg') no-repeat center center;
+      background-size: auto;
       overflow: hidden;
       position: relative;
     }
@@ -24,8 +23,8 @@
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      bottom: 120px;
-      width: 120px; /* 약 10배 확대 */
+      bottom: 140px;
+      width: calc(12px * 10); /* 아이콘 10배 크기 */
       cursor: pointer;
       z-index: 2;
     }
@@ -39,6 +38,19 @@
       height: 100vh;
       background-color: rgba(0, 0, 0, 0.8);
       z-index: 5;
+    }
+
+    .popup-image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 6;
+    }
+
+    .popup-image img {
+      width: calc(100px * 15); /* 클릭 후 15배 크기 */
+      height: auto;
     }
 
     .quote {
@@ -95,8 +107,12 @@
         padding: 16px;
       }
 
+      .popup-image img {
+        width: calc(80px * 15);
+      }
+
       .icon-button {
-        width: 80px;
+        width: calc(8px * 10);
       }
     }
   </style>
@@ -113,6 +129,9 @@
 
   <!-- 오버레이 -->
   <div class="overlay" id="overlay">
+    <div class="popup-image">
+      <img src="https://i.postimg.cc/PCYJqJ6z/message-bg.jpg" alt="배경 메시지">
+    </div>
     <div class="quote" id="quote-text">로딩 중...</div>
 
     <!-- 좌우 내비게이션 -->
@@ -185,6 +204,5 @@
       showQuote(currentIndex);
     }
   </script>
-
 </body>
 </html>
