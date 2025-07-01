@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>오늘의 메시지</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/NanumMyeongjo.woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      font-family: 'NanumMyeongjo', serif;
+      background: #0a0813 url('https://i.postimg.cc/nXrYkQ1J/bg.jpg') no-repeat center center;
+      background-size: cover;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .icon-button {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 120px;
+      width: calc(12px * 10);
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    .quote {
+      color: white;
+      font-size: 18px;
+      line-height: 1.8;
+      white-space: pre-line;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 24px;
+      border-radius: 16px;
+      max-width: 80%;
+      max-height: 80%;
+      overflow-y: auto;
+      position: relative;
+      font-weight: normal;
+    }
+
+    .nav-button, .close-button {
+      position: fixed;
+      background: rgba(255, 255, 255, 0.8);
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 10px;
+      z-index: 10;
+      user-select: none;
+    }
+
+    .nav-button:hover, .close-button:hover {
+      background: #ddd;
+    }
+
+    .prev-button {
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+    }
+
+    .next-button {
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+    }
+
+    .close-button {
+      top: 20px;
+      right: 20px;
+      font-size: 24px;
+      transform: none;
+    }
+
+    @media screen and (max-width: 768px) {
+      .quote {
+        font-size: 14px;
+        padding: 16px;
+      }
+
+      .icon-button {
+        width: calc(8px * 10);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 아이콘 버튼 -->
+  <img
+    src="https://i.postimg.cc/cgNbN9vB/button-image.png"
+    alt="메시지 버튼"
+    class="icon-button"
+    onclick="openOverlay()"
+  />
+
+  <!-- 오버레이 -->
+  <div class="overlay" id="overlay">
+    <div class="quote" id="quote-text">로딩 중...</div>
+
+    <!-- 좌우 내비게이션 -->
+    <button class="nav-button prev-button" onclick="changeDate(-1)">◀</button>
+    <button class="nav-button next-button" onclick="changeDate(1)">▶</button>
+
+    <!-- 닫기 버튼 -->
+    <button class="close-button" onclick="closeOverlay()">X</button>
+  </div>
+
+  <script>
+    const quotes = {
+      '2025-07-01': `희망 없는 세상에선 살 수 있었지만
+너 없는 세상에선 살고 싶지가 않아서.
+죽음은 너 없는 세상이고 그래서 나는 정말 죽고 싶지 않았어.
+
+<구의 증명>, 최진영`,
+      '2025-07-02': `사랑해. 그렇지만
+불타는 자동차에서는 내리기.
+
+<당신은 언제 노래가 되지>, 허연`,
+      '2025-07-03': `그래. 시작은 누구 때문이었는지도 모르지만 결국 자신을 만드는 건 자기 자신이지.
+살면서 받는 상처나 고통 같은 걸 자기 삶의 훈장으로 만들지,
+누덕누덕 기운 자국으로 만들지는 자기한테 달린 것 같아.
+
+<유진과 유진>, 이금이`,
+      '2025-07-04': `그런데 말이다.
+평범하다는 건 사실 가장 이루기 어려운 가치란다.
+
+<아몬드>, 손원평`,
+      '2025-07-05': `사랑이 늦게 도착하는 오후엔
+조금 빨리 일어나서 사랑을 기다리도록 한다
+언젠가 삶이 내게 사랑하는 것을 멈추라고 했는데
+나는 조금 멀리 나아가기로 했다
+
+<사랑의 정의는 고양이>, 임현우`
+    };
+
+    const dates = Object.keys(quotes);
+    let currentIndex = dates.indexOf(getTodayKey());
+    if (currentIndex === -1) currentIndex = 0;
+
+    function getTodayKey() {
+      const today = new Date();
+      const yyyy = today.getFullYear();
+      const mm = String(today.getMonth() + 1).padStart(2, '0');
+      const dd = String(today.getDate()).padStart(2, '0');
+      return `${yyyy}-${mm}-${dd}`;
+    }
+
+    function openOverlay() {
+      const overlay = document.getElementById('overlay');
+      overlay.style.display = 'flex';
+      showQuote(currentIndex);
+    }
+
+    function closeOverlay() {
+      document.getElementById('overlay').style.display = 'none';
+    }
+
+    function showQuote(index) {
+      const key = dates[index];
+      const quoteBox = document.getElementById('quote-text');
+      quoteBox.textContent = quotes[key] || "오늘의 메시지가 준비되지 않았어요.";
+    }
+
+    function changeDate(offset) {
+      currentIndex += offset;
+      if (currentIndex < 0) currentIndex = 0;
+      if (currentIndex >= dates.length) currentIndex = dates.length - 1;
+      showQuote(currentIndex);
+    }
+  </script>
+</body>
+</html>
