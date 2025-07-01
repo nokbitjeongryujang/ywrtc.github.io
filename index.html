@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>오늘의 메시지</title>
+  <!-- 눈누 웹폰트: 나눔명조 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/NanumMyeongjo.woff2" as="font" type="font/woff2" crossorigin>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('https://i.postimg.cc/3kc4kz7Y/bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'NanumMyeongjo', serif;
+      overflow: hidden;
+    }
+
+    .window-button {
+      position: absolute;
+      left: 960px;
+      top: 410px;
+      width: 120px;
+      height: auto;
+      cursor: pointer;
+      transition: transform 0.2s;
+      z-index: 2;
+    }
+
+    .window-button:hover {
+      transform: scale(1.05);
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+      max-width: 90%;
+      max-height: 90%;
+    }
+
+    .popup img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    }
+
+    .quote {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 18px;
+      line-height: 1.8;
+      text-align: center;
+      white-space: pre-line;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 30px;
+      border-radius: 16px;
+      max-width: 80%;
+      z-index: 4;
+    }
+
+    @media screen and (max-width: 768px) {
+      .window-button {
+        width: 80px;
+        left: 70%;
+        top: 400px;
+      }
+
+      .quote {
+        font-size: 14px;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 창틀 앞 버튼 이미지 -->
+  <img
+    src="https://i.postimg.cc/cgNbN9vB/button-image.png"
+    alt="메시지 버튼"
+    class="window-button"
+    onclick="showPopup()"
+  />
+
+  <!-- 팝업 이미지와 멘트 -->
+  <div class="popup" id="popup">
+    <img src="https://i.postimg.cc/PCYJqJ6z/message-bg.jpg" alt="멘트 배경">
+    <div class="quote" id="quote-text">로딩 중...</div>
+  </div>
+
+  <script>
+    const quotes = {
+      '2025-07-01': `희망 없는 세상에선 살 수 있었지만
+너 없는 세상에선 살고 싶지가 않아서.
+죽음은 너 없는 세상이고 그래서 나는 정말 죽고 싶지 않았어.
+
+구의 증명, 최진영`,
+      '2025-07-02': `사랑해. 그렇지만
+불타는 자동차에서는 내리기.
+
+당신은 언제 노래가 되지, 허연`,
+      '2025-07-03': `그래. 시작은 누구 때문이었는지도 모르지만 결국 자신을 만드는 건 자기 자신이지.
+살면서 받는 상처나 고통 같은 걸 자기 삶의 훈장으로 만들지,
+누덕누덕 기운 자국으로 만들지는 자기한테 달린 것 같아.
+
+유진과 유진, 이금이`,
+      '2025-07-04': `그런데 말이다.
+평범하다는 건 사실 가장 이루기 어려운 가치란다.
+
+아몬드, 손원평`,
+      '2025-07-05': `사랑이 늦게 도착하는 오후엔
+조금 빨리 일어나서 사랑을 기다리도록 한다
+언젠가 삶이 내게 사랑하는 것을 멈추라고 했는데
+나는 조금 멀리 나아가기로 했다
+
+사랑의 정의는 고양이, 임현우`
+    };
+
+    function getTodayKey() {
+      const today = new Date();
+      const yyyy = today.getFullYear();
+      const mm = String(today.getMonth() + 1).padStart(2, '0');
+      const dd = String(today.getDate()).padStart(2, '0');
+      return `${yyyy}-${mm}-${dd}`;
+    }
+
+    function showPopup() {
+      const today = getTodayKey();
+      const popup = document.getElementById("popup");
+      const quoteBox = document.getElementById("quote-text");
+
+      if (quotes[today]) {
+        quoteBox.textContent = quotes[today];
+      } else {
+        quoteBox.textContent = "오늘의 메시지가 준비되지 않았어요.";
+      }
+
+      popup.style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
