@@ -1,27 +1,18 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>오늘의 메시지</title>
-  <!-- 나눔명조 웹폰트 -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/NanumMyeongjo.woff2"
-    as="font"
-    type="font/woff2"
-    crossorigin
-  />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/NanumMyeongjo.woff2" as="font" type="font/woff2" crossorigin>
   <style>
-    html,
-    body {
+    html, body {
       margin: 0;
       padding: 0;
       width: 100vw;
       height: 100vh;
       font-family: 'NanumMyeongjo', serif;
-      background: #0a0813 url('https://i.postimg.cc/sBCQhdBW/bg-2560x1440.jpg')
-        no-repeat center center;
-      background-size: contain;
+      background: #0a0813 url('https://i.postimg.cc/nXrYkQ1J/bg.jpg') no-repeat center center;
+      background-size: cover;
       overflow: hidden;
       position: relative;
     }
@@ -30,8 +21,8 @@
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      bottom: 140px;
-      width: calc(12px * 10); /* 아이콘 10배 크기 */
+      bottom: 120px;
+      width: calc(12px * 10);
       cursor: pointer;
       z-index: 2;
     }
@@ -68,8 +59,7 @@
       font-weight: normal;
     }
 
-    .nav-button,
-    .close-button {
+    .nav-button, .close-button {
       position: fixed;
       background: rgba(255, 255, 255, 0.8);
       border: none;
@@ -80,8 +70,7 @@
       user-select: none;
     }
 
-    .nav-button:hover,
-    .close-button:hover {
+    .nav-button:hover, .close-button:hover {
       background: #ddd;
     }
 
@@ -117,6 +106,7 @@
   </style>
 </head>
 <body>
+
   <!-- 아이콘 버튼 -->
   <img
     src="https://i.postimg.cc/cgNbN9vB/button-image.png"
@@ -126,7 +116,7 @@
   />
 
   <!-- 오버레이 -->
-  <div class="overlay" id="overlay" onclick="closeOverlay(event)">
+  <div class="overlay" id="overlay">
     <div class="quote" id="quote-text">로딩 중...</div>
 
     <!-- 좌우 내비게이션 -->
@@ -145,7 +135,7 @@
 
 <구의 증명>, 최진영`,
       '2025-07-02': `사랑해. 그렇지만
-불타는 자동차에서는 내리자.
+불타는 자동차에서는 내리기.
 
 <당신은 언제 노래가 되지>, 허연`,
       '2025-07-03': `그래. 시작은 누구 때문이었는지도 모르지만 결국 자신을 만드는 건 자기 자신이지.
@@ -167,7 +157,7 @@
 
     const dates = Object.keys(quotes);
     let currentIndex = dates.indexOf(getTodayKey());
-    if (currentIndex === -1) currentIndex = 0; // 오늘 날짜 없으면 첫 메시지
+    if (currentIndex === -1) currentIndex = 0;
 
     function getTodayKey() {
       const today = new Date();
@@ -183,17 +173,14 @@
       showQuote(currentIndex);
     }
 
-    function closeOverlay(e) {
-      // 오버레이 바깥 클릭 또는 닫기 버튼 클릭 시 닫기
-      if (e.target.id === 'overlay' || e.target.classList.contains('close-button')) {
-        document.getElementById('overlay').style.display = 'none';
-      }
+    function closeOverlay() {
+      document.getElementById('overlay').style.display = 'none';
     }
 
     function showQuote(index) {
       const key = dates[index];
       const quoteBox = document.getElementById('quote-text');
-      quoteBox.textContent = quotes[key] || '오늘의 메시지가 준비되지 않았어요.';
+      quoteBox.textContent = quotes[key] || "오늘의 메시지가 준비되지 않았어요.";
     }
 
     function changeDate(offset) {
