@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>능소화 폭포</title>
+
+  <!-- 폰트 설정 -->
+  <style>
+    @font-face {
+      font-family: 'BoldDunggeunmo';
+      src: url('https://kongbiii.github.io/images/BoldDunggeunmo.woff') format('woff');
+    }
+
+    @font-face {
+      font-family: 'BookkMyungjo_Bold';
+      src: url('https://kongbiii.github.io/images/BookkMyungjo_Bold.woff') format('woff');
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('https://kongbiii.github.io/images/neungback.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'BookkMyungjo_Bold', serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+    }
+
+    .title-box {
+      margin-top: 40px;
+      position: relative;
+    }
+
+    .title-box img {
+      width: 320px;
+    }
+
+    .title-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'BoldDunggeunmo', sans-serif;
+      font-size: 24px;
+      color: #000000;
+      text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff,
+                   -1px 1px 0 #fff, 1px 1px 0 #fff;
+    }
+
+    .poem-box {
+      background: url('https://kongbiii.github.io/images/post.png') no-repeat center center;
+      background-size: contain;
+      width: 90%;
+      max-width: 800px;
+      padding: 40px 30px;
+      margin: 30px 0;
+      font-size: 1.2rem;
+      color: #222;
+      line-height: 2;
+      white-space: pre-line;
+    }
+
+    .button-section {
+      background: url('https://kongbiii.github.io/images/batang.png') no-repeat center center;
+      background-size: contain;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      width: 240px;
+      gap: 16px;
+    }
+
+    .button-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'BoldDunggeunmo', sans-serif;
+      color: #000;
+      font-size: 18px;
+    }
+
+    .button-row img {
+      width: 60px;
+      height: auto;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      .title-box img {
+        width: 260px;
+      }
+      .title-text {
+        font-size: 18px;
+      }
+      .poem-box {
+        font-size: 1rem;
+        padding: 30px 20px;
+      }
+      .button-section {
+        width: 200px;
+      }
+      .button-row img {
+        width: 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 제목 -->
+  <div class="title-box">
+    <img src="https://kongbiii.github.io/images/title.png" alt="제목 말풍선">
+    <div class="title-text">&lt;능소화 폭포&gt;</div>
+  </div>
+
+  <!-- 시 구절 -->
+  <div class="poem-box">
+어둠속에서 담배를 핀다 칠흑 같은 바다의 어둠과 침묵
+그리고 소멸하는 시간 속에서 살아오는 허무의 꽃
+꿈인지도 모른다 꿈의 꿈인지도 모른다 몽환의 화려한 불꽃
+꽃가루 언제부턴가 눈에서 귀에서 검은 입속에서 피어오르는
+따뜻한 꽃 웃음의 끝 울음의 끝에서 환히 피어오르는 허무의 꽃
+가슴 저 끝에 뿌리박은 듯 뻗어 올라 가슴가득
+뒤덮은 능소화 푸른 잎 속에 피어오르는 주황빛 저 꽃
+
+&lt;능소화&gt; 윤재철 / 솔의 시인
+  </div>
+
+  <!-- 버튼 섹션 -->
+  <div class="button-section">
+    <div class="button-row">
+      <span>도서 구매</span>
+      <a href="https://www.yes24.com/product/goods/2695015" target="_blank">
+        <img src="https://kongbiii.github.io/images/bookbotton.png" alt="도서구매">
+      </a>
+    </div>
+    <div class="button-row">
+      <span>위치 확인</span>
+      <a href="https://naver.me/FJINkAmR" target="_blank">
+        <img src="https://kongbiii.github.io/images/daegubotton.png" alt="위치확인">
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>
