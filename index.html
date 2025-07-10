@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>읽는도시 읽는당신</title>
+
+  <!-- 둥근모꼴 비슷한 웹폰트 (눈누: DungGeunMo) -->
+  <link href="https://cdn.jsdelivr.net/gh/webfontworld/dunggeunmo/DungGeunMo.css" rel="stylesheet">
+
   <style>
     * {
       box-sizing: border-box;
@@ -31,10 +35,11 @@
     }
 
     .title {
+      font-family: 'DungGeunMo', sans-serif;
       font-size: 3rem;
-      font-weight: bold;
+      font-weight: normal;
       text-align: center;
-      color: #fff;
+      color: #ead3be;
       padding: 30px 20px 10px;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
     }
@@ -44,13 +49,13 @@
       top: 15px;
       right: 15px;
       display: flex;
-      gap: 10px;
+      gap: 6px;
     }
 
     .corner-icons img {
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
     }
 
     .slider-container {
@@ -87,8 +92,8 @@
       }
 
       .corner-icons img {
-        width: 30px;
-        height: 30px;
+        width: 20px;
+        height: 20px;
       }
 
       .slider-container img {
