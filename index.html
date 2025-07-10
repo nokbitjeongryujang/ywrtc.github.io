@@ -43,10 +43,10 @@
 
     .title {
       font-family: 'BoldDunggeunmo', sans-serif;
-      font-size: 3rem;
+      font-size: 4rem;
       text-align: center;
       color: #ead3be;
-      padding: 30px 20px 10px;
+      padding: 50px 20px 10px;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
     }
 
@@ -65,11 +65,13 @@
     }
 
     .slider-container {
+      display: flex;
+      justify-content: center;
       overflow-x: auto;
       overflow-y: hidden;
       white-space: nowrap;
       padding: 30px 20px;
-      margin: 0 auto;
+      margin: 80px auto 40px; /* PC에서 많이 아래로 */
       max-width: 100%;
       -webkit-overflow-scrolling: touch;
     }
@@ -94,12 +96,16 @@
 
     @media (max-width: 768px) {
       .title {
-        font-size: 2rem;
+        font-size: 3rem;
       }
 
       .corner-icons img {
         width: 20px;
         height: 20px;
+      }
+
+      .slider-container {
+        margin-top: 30px; /* 모바일에서 조금 아래로 */
       }
 
       .slider-container img {
