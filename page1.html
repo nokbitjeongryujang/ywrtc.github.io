@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>카드 상세 보기</title>
 
-  <!-- 폰트 적용 -->
   <style>
     @font-face {
       font-family: 'BoldDunggeunmo';
@@ -24,7 +23,7 @@
     .title {
       text-align: center;
       font-size: 3rem;
-      margin-top: 3vh;
+      margin-top: 2vh;
       color: #ead3be;
       -webkit-text-stroke: 1px #000000;
     }
@@ -39,8 +38,8 @@
 
     .card-box {
       position: relative;
-      width: 80vw;
-      max-width: 700px;
+      width: 70vw;
+      max-width: 600px;
     }
 
     .card-bg {
@@ -51,14 +50,14 @@
 
     .card-grid {
       position: absolute;
-      top: 7%;
+      top: 8%;
       left: 5%;
       width: 90%;
-      height: 86%;
+      height: 84%;
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
-      gap: 2%;
+      gap: 3%;
     }
 
     .card-img {
@@ -70,16 +69,16 @@
 
     .corner-icons {
       position: absolute;
-      top: 20px;
-      right: 20px;
+      top: 15px;
+      right: 15px;
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
 
     .corner-icons img {
-      width: 40px;
-      height: 40px;
+      width: 36px;
+      height: 36px;
       cursor: pointer;
     }
 
@@ -89,12 +88,12 @@
       }
 
       .card-box {
-        width: 90vw;
+        width: 85vw;
       }
 
       .corner-icons img {
-        width: 36px;
-        height: 36px;
+        width: 30px;
+        height: 30px;
       }
     }
   </style>
@@ -110,7 +109,7 @@
       <div class="card-grid">
         <img src="images/s1.png" alt="s1" class="card-img">
 
-        <!-- ✅ s2 클릭 시 page2.html로 이동 -->
+        <!-- s2 클릭 시 page2.html로 이동 -->
         <a href="page2.html">
           <img src="images/s2.png" alt="s2" class="card-img">
         </a>
