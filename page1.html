@@ -1,140 +1,130 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>읽는도시 이미지 상세</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카드 상세 보기</title>
 
-  <!-- 픽셀 폰트 -->
+  <!-- 폰트 적용 -->
   <style>
     @font-face {
       font-family: 'BoldDunggeunmo';
-      src: url('https://kongbiii.github.io/images/BoldDunggeunmo.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
-    }
-  </style>
-
-  <style>
-    * {
-      box-sizing: border-box;
+      src: url('images/BoldDunggeunmo.woff') format('woff');
     }
 
-    html, body {
+    body {
       margin: 0;
       padding: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://kongbiii.github.io/images/background1.png') no-repeat center center fixed;
+      background-image: url('images/background1.png');
       background-size: cover;
+      background-position: center;
       font-family: 'BoldDunggeunmo', sans-serif;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 3rem;
+      margin-top: 3vh;
+      color: #ead3be;
+      -webkit-text-stroke: 1px #000000;
     }
 
     .container {
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
-      height: 100%;
+      align-items: center;
+      flex-direction: column;
+      height: 85vh;
+    }
+
+    .card-box {
       position: relative;
+      width: 80vw;
+      max-width: 700px;
     }
 
-    .title {
-      font-size: 2.8rem;
-      color: #ead3be;
-      text-shadow:
-        -2px -2px 0 #000,
-         2px -2px 0 #000,
-        -2px  2px 0 #000,
-         2px  2px 0 #000;
-      margin-bottom: 30px;
-      text-align: center;
-    }
-
-    .corner-icons {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      display: flex;
-      gap: 10px;
-    }
-
-    .corner-icons img {
-      width: 26px;
-      height: 26px;
-      cursor: pointer;
-    }
-
-    .image-box {
-      position: relative;
-      width: 480px;
-    }
-
-    .image-box img.nemo {
+    .card-bg {
       width: 100%;
       height: auto;
       display: block;
     }
 
-    .buttons-grid {
+    .card-grid {
       position: absolute;
-      top: 5%;
+      top: 7%;
       left: 5%;
       width: 90%;
-      height: 90%;
+      height: 86%;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 5%;
+      grid-template-rows: 1fr 1fr;
+      gap: 2%;
     }
 
-    .buttons-grid img {
+    .card-img {
       width: 100%;
-      height: auto;
-      border-radius: 10px;
+      height: 100%;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    .corner-icons {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .corner-icons img {
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
     }
 
     @media (max-width: 768px) {
       .title {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
 
-      .image-box {
-        width: 340px;
-      }
-
-      .corner-icons {
-        top: 15px;
-        right: 20px;
+      .card-box {
+        width: 90vw;
       }
 
       .corner-icons img {
-        width: 22px;
-        height: 22px;
+        width: 36px;
+        height: 36px;
       }
     }
   </style>
 </head>
 <body>
+
+  <div class="title">영원히 피고 지는 우리</div>
+
   <div class="container">
-    <!-- 우측 상단 아이콘 -->
-    <div class="corner-icons">
-      <img src="https://kongbiii.github.io/images/sudal.png" alt="아이콘">
-      <img src="https://kongbiii.github.io/images/xbotton.png" alt="닫기" onclick="window.location.href='index.html'">
-    </div>
+    <div class="card-box">
+      <img src="images/nemo.png" alt="배경 네모" class="card-bg">
 
-    <!-- 제목 -->
-    <div class="title">〈영원히 피고 지는 우리〉</div>
+      <div class="card-grid">
+        <img src="images/s1.png" alt="s1" class="card-img">
 
-    <!-- 회색 네모박스 + 이미지들 -->
-    <div class="image-box">
-      <img src="https://kongbiii.github.io/images/nemo.png" alt="회색배경" class="nemo">
-      <div class="buttons-grid">
-        <img src="https://kongbiii.github.io/images/s1.png" alt="s1">
-        <img src="https://kongbiii.github.io/images/s2.png" alt="s2">
-        <img src="https://kongbiii.github.io/images/s3.png" alt="s3">
-        <img src="https://kongbiii.github.io/images/s4.png" alt="s4">
+        <!-- ✅ s2 클릭 시 page2.html로 이동 -->
+        <a href="page2.html">
+          <img src="images/s2.png" alt="s2" class="card-img">
+        </a>
+
+        <img src="images/s3.png" alt="s3" class="card-img">
+        <img src="images/s4.png" alt="s4" class="card-img">
       </div>
     </div>
   </div>
+
+  <div class="corner-icons">
+    <img src="images/sudal.png" alt="수달 아이콘">
+    <a href="index.html"><img src="images/xbotton.png" alt="닫기 버튼"></a>
+  </div>
+
 </body>
 </html>
