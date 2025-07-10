@@ -5,23 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>능소화 폭포</title>
   <style>
-@font-face {
-  font-family: 'BoldDunggeunmo';
-  src: url('images/BoldDunggeunmo.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
+    /* 웹폰트 선언 */
+    @font-face {
+      font-family: 'BoldDunggeunmo';
+      src: url('images/BoldDunggeunmo.woff') format('woff');
+    }
+
+    @font-face {
+      font-family: 'BookkMyungjo_Bold';
+      src: url('images/BookkMyungjo_Bold.woff') format('woff');
+    }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       width: 100vw;
       height: 100vh;
       overflow: hidden;
-      background-image: url("images/neungback.jpg");
+      background-image: url("images/neungback.png");
       background-size: cover;
       background-position: center;
       font-family: 'BookkMyungjo_Bold', serif;
@@ -29,7 +34,28 @@
       position: relative;
     }
 
-    /* 제목 이미지와 텍스트 */
+    /* 상단 버튼 (오른쪽 상단으로 이동) */
+    .top-buttons {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sudal {
+      width: 40px;
+      height: 40px;
+    }
+
+    .xbotton {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+    }
+
+    /* 제목 이미지 */
     .title-container {
       position: absolute;
       top: 8%;
@@ -44,20 +70,21 @@
       align-items: center;
       justify-content: center;
     }
+
     .title-text {
-      font-family: 'index-title-font', sans-serif;
-      font-size: 32px;
+      font-family: 'BoldDunggeunmo', sans-serif;
+      font-size: 36px;
       color: black;
       text-align: center;
     }
 
-    /* 책 구절과 post 이미지 */
+    /* 책 구절 영역 */
     .post-container {
       position: absolute;
       bottom: 5%;
       left: 5%;
-      width: 650px;
-      height: 320px;
+      width: 900px;
+      height: 400px;
       background-image: url("images/post.png");
       background-size: contain;
       background-repeat: no-repeat;
@@ -68,9 +95,10 @@
       text-align: center;
       padding: 20px;
     }
+
     .poem-text {
       font-family: 'BookkMyungjo_Bold', serif;
-      font-size: 16px;
+      font-size: 20px;
       white-space: pre-line;
       line-height: 1.6;
       color: black;
@@ -90,48 +118,31 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-end;
-      gap: 10px;
-      padding-bottom: 40px;
+      justify-content: center;
+      gap: 20px;
     }
+
     .button-row {
       display: flex;
       align-items: center;
       gap: 10px;
     }
+
     .button-text {
-      font-family: 'index-title-font', sans-serif;
+      font-family: 'BoldDunggeunmo', sans-serif;
       font-size: 18px;
       color: black;
     }
+
     .bookbotton, .daegubotton {
       width: 32px;
       height: 32px;
-    }
-
-    /* 상단 고정 버튼 */
-    .top-buttons {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .sudal {
-      width: 40px;
-      height: 40px;
-    }
-    .xbotton {
-      width: 30px;
-      height: 30px;
-      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
-  <!-- 상단 버튼 -->
+  <!-- 오른쪽 상단 고정 버튼 -->
   <div class="top-buttons">
     <img src="images/sudal.png" alt="sudal" class="sudal" />
     <img src="images/xbotton.png" alt="닫기" class="xbotton" onclick="location.href='page1.html'" />
