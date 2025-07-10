@@ -1,129 +1,173 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>·능소화 폭포·</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>능소화 폭포</title>
   <style>
-    body {
+@font-face {
+  font-family: 'BoldDunggeunmo';
+  src: url('images/BoldDunggeunmo.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+    * {
       margin: 0;
       padding: 0;
-      background: url('images/neungback.png') no-repeat center center fixed;
+      box-sizing: border-box;
+    }
+    body {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background-image: url("images/neungback.jpg");
       background-size: cover;
+      background-position: center;
       font-family: 'BookkMyungjo_Bold', serif;
       color: black;
-      overflow: hidden;
+      position: relative;
     }
 
-    @font-face {
-      font-family: 'BookkMyungjo_Bold';
-      src: url('images/BoldDunggeunmo.woff') format('woff');
-    }
-
+    /* 제목 이미지와 텍스트 */
     .title-container {
       position: absolute;
-      top: 5%;
-      right: 8%;
+      top: 8%;
+      right: 6%;
       width: 800px;
       height: 250px;
-      background: url('images/title.png') no-repeat center center;
+      background-image: url("images/title.png");
       background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-
     .title-text {
-      font-size: 40px;
+      font-family: 'index-title-font', sans-serif;
+      font-size: 32px;
       color: black;
       text-align: center;
     }
 
+    /* 책 구절과 post 이미지 */
     .post-container {
       position: absolute;
       bottom: 5%;
       left: 5%;
-      width: 1300px;
-      height: 670px;
-      background: url('images/post.png') no-repeat center center;
+      width: 650px;
+      height: 320px;
+      background-image: url("images/post.png");
       background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 40px;
-      box-sizing: border-box;
+      padding: 20px;
     }
-
-    .poem {
+    .poem-text {
       font-family: 'BookkMyungjo_Bold', serif;
-      font-size: 20px;
+      font-size: 16px;
       white-space: pre-line;
       line-height: 1.6;
+      color: black;
     }
 
+    /* 도서구매 / 위치확인 영역 */
     .batang-container {
       position: absolute;
-      bottom: 5%;
+      bottom: 8%;
       right: 5%;
       width: 350px;
       height: 250px;
-      background: url('images/batang.png') no-repeat center center;
+      background-image: url("images/batang.png");
       background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      gap: 15px;
+      justify-content: flex-end;
+      gap: 10px;
+      padding-bottom: 40px;
     }
-
-    .batang-button {
+    .button-row {
       display: flex;
       align-items: center;
-      justify-content: center;
       gap: 10px;
-      font-size: 20px;
+    }
+    .button-text {
+      font-family: 'index-title-font', sans-serif;
+      font-size: 18px;
       color: black;
-      font-family: 'BookkMyungjo_Bold';
+    }
+    .bookbotton, .daegubotton {
+      width: 32px;
+      height: 32px;
     }
 
-    .batang-button img {
+    /* 상단 고정 버튼 */
+    .top-buttons {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .sudal {
+      width: 40px;
+      height: 40px;
+    }
+    .xbotton {
+      width: 30px;
       height: 30px;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <div class="title-container">
-    <div class="title-text">&lt;능소화 폭포&gt;</div>
+
+  <!-- 상단 버튼 -->
+  <div class="top-buttons">
+    <img src="images/sudal.png" alt="sudal" class="sudal" />
+    <img src="images/xbotton.png" alt="닫기" class="xbotton" onclick="location.href='page1.html'" />
   </div>
 
+  <!-- 제목 이미지와 텍스트 -->
+  <div class="title-container">
+    <div class="title-text">능소화 폭포</div>
+  </div>
+
+  <!-- 책 구절 -->
   <div class="post-container">
-    <div class="poem">
+    <div class="poem-text">
 어둠속에서 담배를 핀다 칠흑 같은 바다의 어둠과 침묵
 그리고 소멸하는 시간 속에서 살아오는 허무의 꽃
 꿈인지도 모른다 꿈의 꿈인지도 모른다 몽환의 화려한 불꽃
-꽃가루 언제부턴가 눈에서 귀에서 검은 입속에서 피어오르는 따뜻한 꽃
-웃음의 끝 울음의 끝에서 환히 피어오르는 허무의 꽃
+꽃가루 언제부턴가 눈에서 귀에서 검은 입속에서 피어오르는
+따뜻한 꽃 웃음의 끝 울음의 끝에서 환히 피어오르는 허무의 꽃
 가슴 저 끝에 뿌리박은 듯 뻗어 올라 가슴 가득
 뒤덮은 능소화 푸른 잎 속에 피어오르는 주황빛 저 꽃
 
-&lt;능소화&gt; 윤재철 / 솔의 시인
+<능소화> 윤재철 / 솔의 시인
     </div>
   </div>
 
+  <!-- 도서구매 & 위치확인 버튼 영역 -->
   <div class="batang-container">
-    <a href="https://www.yes24.com/product/goods/2695015" class="batang-button">
-      <span>도서 구매</span>
-      <img src="images/bookbotton.png" alt="BOOK">
-    </a>
-    <a href="https://naver.me/FJINkAmR" class="batang-button">
-      <span>위치 확인</span>
-      <img src="images/daegubotton.png" alt="DAEGU">
-    </a>
+    <div class="button-row">
+      <div class="button-text">도서 구매</div>
+      <img src="images/bookbotton.png" alt="book button" class="bookbotton" />
+    </div>
+    <div class="button-row">
+      <div class="button-text">위치 확인</div>
+      <img src="images/daegubotton.png" alt="daegu button" class="daegubotton" />
+    </div>
   </div>
+
 </body>
 </html>
