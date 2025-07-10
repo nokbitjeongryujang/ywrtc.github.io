@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>읽는도시 이미지 상세</title>
 
-  <!-- 픽셀 폰트 적용 -->
+  <!-- 픽셀 폰트 -->
   <style>
     @font-face {
       font-family: 'BoldDunggeunmo';
@@ -30,123 +30,103 @@
       font-family: 'BoldDunggeunmo', sans-serif;
     }
 
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
     .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 60px;
+      padding-bottom: 60px;
       position: relative;
+    }
+
+    .title {
+      font-size: 3.2rem;
+      color: #ead3be;
+      text-shadow:
+        -2px -2px 0 #000,
+         2px -2px 0 #000,
+        -2px  2px 0 #000,
+         2px  2px 0 #000;
+      margin-bottom: 40px;
       text-align: center;
-    }
-
-    .text-left, .text-right {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 3rem;
-      color: white;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-      line-height: 2.2;
-      z-index: 5;
-    }
-
-    .text-left {
-      left: -160px;
-      text-align: right;
-    }
-
-    .text-right {
-      right: -160px;
-      text-align: left;
     }
 
     .corner-icons {
       position: absolute;
-      top: 40px;
-      right: 40px;
+      top: 30px;
+      right: 30px;
       display: flex;
       gap: 10px;
-      z-index: 10;
     }
 
     .corner-icons img {
-      width: 24px;
-      height: 24px;
+      width: 32px;
+      height: 32px;
       cursor: pointer;
     }
 
     .image-box {
       position: relative;
-      width: 480px;
-      margin: 0 auto;
+      width: 90vw;
+      max-width: 640px;
     }
 
     .image-box img.nemo {
       width: 100%;
+      height: auto;
       display: block;
     }
 
     .buttons-grid {
       position: absolute;
-      top: 30px;
-      left: 30px;
+      top: 5%;
+      left: 5%;
+      width: 90%;
+      height: 90%;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: 4%;
     }
 
     .buttons-grid img {
-      width: 200px;
+      width: 100%;
       height: auto;
       border-radius: 10px;
     }
 
     @media (max-width: 768px) {
-      .text-left, .text-right {
-        font-size: 2rem;
-        left: -120px;
-        right: -120px;
-      }
-
-      .image-box {
-        width: 360px;
-      }
-
-      .buttons-grid {
-        top: 22px;
-        left: 22px;
-        gap: 14px;
-      }
-
-      .buttons-grid img {
-        width: 160px;
+      .title {
+        font-size: 2.2rem;
       }
 
       .corner-icons {
         top: 20px;
         right: 20px;
       }
+
+      .corner-icons img {
+        width: 26px;
+        height: 26px;
+      }
+
+      .image-box {
+        width: 92vw;
+      }
     }
   </style>
 </head>
 <body>
-
-  <!-- 중앙 전체 컨테이너 -->
   <div class="container">
-
-    <!-- 좌우 텍스트 -->
-    <div class="text-left">영원히<br>지는</div>
-    <div class="text-right">피고<br>우리</div>
-
     <!-- 우측 상단 아이콘 -->
     <div class="corner-icons">
       <img src="https://kongbiii.github.io/images/sudal.png" alt="아이콘">
       <img src="https://kongbiii.github.io/images/xbotton.png" alt="닫기" onclick="window.location.href='index.html'">
     </div>
 
-    <!-- 가운데 박스 + 버튼 이미지 -->
+    <!-- 제목 -->
+    <div class="title">〈영원히 피고 지는 우리〉</div>
+
+    <!-- 회색 네모박스 + 이미지들 -->
     <div class="image-box">
       <img src="https://kongbiii.github.io/images/nemo.png" alt="회색배경" class="nemo">
       <div class="buttons-grid">
@@ -156,7 +136,6 @@
         <img src="https://kongbiii.github.io/images/s4.png" alt="s4">
       </div>
     </div>
-
   </div>
 </body>
 </html>
