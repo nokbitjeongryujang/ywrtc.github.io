@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>읽는도시 이미지 상세</title>
+
+  <!-- 폰트 적용 -->
+  <style>
+    @font-face {
+      font-family: 'BoldDunggeunmo';
+      src: url('https://kongbiii.github.io/images/BoldDunggeunmo.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('https://kongbiii.github.io/images/background1.png') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      font-family: 'BoldDunggeunmo', sans-serif;
+    }
+
+    .corner-icons {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      display: flex;
+      gap: 6px;
+      z-index: 10;
+    }
+
+    .corner-icons img {
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+    }
+
+    .text-left,
+    .text-right {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+      line-height: 1.8;
+    }
+
+    .text-left {
+      left: 40px;
+      text-align: right;
+    }
+
+    .text-right {
+      right: 40px;
+      text-align: left;
+    }
+
+    .image-box {
+      position: relative;
+      width: fit-content;
+      margin: 100px auto 60px;
+    }
+
+    .image-box img.nemo {
+      width: 320px;
+      display: block;
+    }
+
+    .buttons-grid {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .buttons-grid img {
+      width: 140px;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 600px) {
+      .text-left, .text-right {
+        font-size: 1.5rem;
+        top: 40%;
+      }
+
+      .image-box img.nemo {
+        width: 280px;
+      }
+
+      .buttons-grid img {
+        width: 120px;
+      }
+
+      .buttons-grid {
+        top: 16px;
+        left: 16px;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 우측 상단 아이콘 -->
+  <div class="corner-icons">
+    <img src="https://kongbiii.github.io/images/sudal.png" alt="아이콘">
+    <img src="https://kongbiii.github.io/images/xbotton.png" alt="닫기" onclick="window.location.href='index.html'">
+  </div>
+
+  <!-- 좌우 텍스트 -->
+  <div class="text-left">영원히<br>지는</div>
+  <div class="text-right">피고<br>우리</div>
+
+  <!-- 가운데 네모 + 이미지들 -->
+  <div class="image-box">
+    <img src="https://kongbiii.github.io/images/nemo.png" alt="회색배경" class="nemo">
+    <div class="buttons-grid">
+      <img src="https://kongbiii.github.io/images/s1.png" alt="s1">
+      <img src="https://kongbiii.github.io/images/s2.png" alt="s2">
+      <img src="https://kongbiii.github.io/images/s3.png" alt="s3">
+      <img src="https://kongbiii.github.io/images/s4.png" alt="s4">
+    </div>
+  </div>
+
+</body>
+</html>
