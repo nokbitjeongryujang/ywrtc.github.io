@@ -57,28 +57,28 @@ cursor: pointer;
     }
 
     /* 제목 이미지 */
-    .title-container {
-      position: absolute;
-      top: 1%;
-      right: 3%;
-      width: 1200px;
-      height: 600px;
-      background-image: url("images/title.png");
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-z-index: 9999; /* 가장 앞으로 보이도록 설정 */
-    }
+.title-container {
+  position: absolute;
+  top: 2%;             /* 상단으로 더 붙이고 싶으면 더 줄여도 됨 ex. 1% */
+  right: 2%;           /* 우측으로 더 붙이기 */
+  width: 800px;        /* 이전보다 작게 (원하는 크기만큼) */
+  height: 250px;       /* 요청한 사이즈 */
+  background-image: url("images/title.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
 
-    .title-text {
-      font-family: 'BoldDunggeunmo', sans-serif;
-      font-size: 90px;
-      color: black;
-      text-align: center;
-    }
+.title-text {
+  font-family: 'BoldDunggeunmo', sans-serif;
+  font-size: 70px;     /* 원한다면 조금 줄이기 */
+  color: black;
+  text-align: center;
+}
 
     /* 책 구절 영역 */
     .post-container {
