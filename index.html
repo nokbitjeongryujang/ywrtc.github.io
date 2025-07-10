@@ -71,7 +71,7 @@
       overflow-y: hidden;
       white-space: nowrap;
       padding: 30px 20px;
-      margin: 80px auto 40px; /* PC에서 많이 아래로 */
+      margin: 80px auto 40px;
       max-width: 100%;
       -webkit-overflow-scrolling: touch;
     }
@@ -105,7 +105,7 @@
       }
 
       .slider-container {
-        margin-top: 30px; /* 모바일에서 조금 아래로 */
+        margin-top: 30px;
       }
 
       .slider-container img {
@@ -123,15 +123,20 @@
   </style>
 </head>
 <body>
+  <!-- 우측 상단 아이콘 -->
   <div class="corner-icons">
     <img src="https://kongbiii.github.io/images/sudal.png" alt="코너 아이콘1">
     <img src="https://kongbiii.github.io/images/xbotton.png" alt="코너 아이콘2">
   </div>
 
+  <!-- 제목 -->
   <div class="title">읽는도시 읽는당신</div>
 
+  <!-- 카드 슬라이드 (east 클릭 시 page1.html 이동) -->
   <div class="slider-container">
-    <img src="https://kongbiii.github.io/images/east.png" alt="카드 east">
+    <a href="page1.html">
+      <img src="https://kongbiii.github.io/images/east.png" alt="카드 east">
+    </a>
     <img src="https://kongbiii.github.io/images/north.png" alt="카드 north">
     <img src="https://kongbiii.github.io/images/south.png" alt="카드 south">
     <img src="https://kongbiii.github.io/images/west.png" alt="카드 west">
