@@ -50,14 +50,16 @@
 
     .card-grid {
       position: absolute;
-      top: 8%;
-      left: 5%;
-      width: 90%;
-      height: 84%;
+      top: 6%;
+      left: 6%;
+      width: 88%;
+      height: 88%;
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
-      gap: 3%;
+      gap: 4%;
+      justify-content: center;
+      align-items: center;
     }
 
     .card-img {
@@ -72,7 +74,7 @@
       top: 15px;
       right: 15px;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       gap: 10px;
     }
 
@@ -108,12 +110,9 @@
 
       <div class="card-grid">
         <img src="images/s1.png" alt="s1" class="card-img">
-
-        <!-- s2 클릭 시 page2.html로 이동 -->
         <a href="page2.html">
           <img src="images/s2.png" alt="s2" class="card-img">
         </a>
-
         <img src="images/s3.png" alt="s3" class="card-img">
         <img src="images/s4.png" alt="s4" class="card-img">
       </div>
