@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>앞산전망대</title>
+  <style>
+    @font-face {
+      font-family: 'BoldDunggeunmo';
+      src: url('images/BoldDunggeunmo.woff') format('woff');
+    }
+
+    @font-face {
+      font-family: 'BookkMyungjo_Bold';
+      src: url('images/BookkMyungjo_Bold.woff') format('woff');
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background-image: url("images/apsanback.png");
+      background-size: cover;
+      background-position: center;
+      font-family: 'BookkMyungjo_Bold', serif;
+      color: black;
+      position: relative;
+    }
+
+    .top-buttons {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sudal {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+    }
+
+    .xbotton {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+    }
+
+    .title-container {
+      position: absolute;
+      top: 35px;
+      right: 240px;
+      width: 600px;
+      height: 150px;
+      background-image: url("images/title.png");
+      background-size: 600px 150px;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .title-text {
+      font-family: 'BoldDunggeunmo', sans-serif;
+      font-size: 64px;
+      color: black;
+      text-align: center;
+      transform: translateY(-12px);
+    }
+
+    .post-container {
+      position: absolute;
+      bottom: 8%;
+      left: 5%;
+      width: 1000px;
+      height: 600px;
+      background-image: url("images/post.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .poem-text {
+      font-family: 'BookkMyungjo_Bold', serif;
+      font-size: 28px;
+      white-space: pre-line;
+      line-height: 1.6;
+      color: black;
+    }
+
+    .batang-container {
+      position: absolute;
+      bottom: 3%;
+      right: 0.5%;
+      width: 400px;
+      height: 300px;
+      background-image: url("images/batang.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      z-index: 10000;
+    }
+
+    .button-row {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .button-text {
+      font-family: 'BoldDunggeunmo', sans-serif;
+      font-size: 20px;
+      color: black;
+    }
+
+    .bookbotton, .daegubotton {
+      width: 32px;
+      height: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-buttons">
+    <img src="images/sudal.png" alt="sudal" class="sudal" />
+    <img src="images/xbotton.png" alt="닫기" class="xbotton" onclick="location.href='page1.html'" />
+  </div>
+
+  <div class="title-container">
+    <div class="title-text">앞산전망대</div>
+  </div>
+
+  <div class="post-container">
+    <div class="poem-text">
+늘 이렇지, 펄롱은 생각했다.
+언제나 쉼 없이 자동으로 다음 단계로, 다음 해야 할 일로 넘어갔다.
+멈춰서 생각하고 돌아볼 시간이 있다면, 삶이 어떨까, 펄롱은 생각했다.
+삶이 달라질까 아니면 그래도 마찬가지일까?
+아니면 그저 일상이 엉망진창 흐트러지고 말까?
+
+<이처럼 사소한 것들> 클레어 키건 저, 홍한별 역 / 다산 책방
+    </div>
+  </div>
+
+  <div class="batang-container">
+    <div class="button-row">
+      <div class="button-text">도서 구매</div>
+      <a href="https://www.yes24.com/product/goods/123400303" target="_blank">
+        <img src="images/bookbotton.png" alt="book button" class="bookbotton" />
+      </a>
+    </div>
+    <div class="button-row">
+      <div class="button-text">위치 확인</div>
+      <a href="https://naver.me/x2jQuyYz" target="_blank">
+        <img src="images/daegubotton.png" alt="daegu button" class="daegubotton" />
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>
