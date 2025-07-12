@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>대구 수목원</title>
+  <style>
+    @font-face {
+      font-family: 'BoldDunggeunmo';
+      src: url('images/BoldDunggeunmo.woff') format('woff');
+    }
+
+    @font-face {
+      font-family: 'BookkMyungjo_Bold';
+      src: url('images/BookkMyungjo_Bold.woff') format('woff');
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background-image: url("images/sumockwonback.png");
+      background-size: cover;
+      background-position: center;
+      font-family: 'BookkMyungjo_Bold', serif;
+      color: black;
+      position: relative;
+    }
+
+    .top-buttons {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sudal {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+    }
+
+    .xbotton {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+    }
+
+    .title-container {
+      position: absolute;
+      top: 35px;
+      right: 240px;
+      width: 600px;
+      height: 150px;
+      background-image: url("images/title.png");
+      background-size: 600px 150px;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .title-text {
+      font-family: 'BoldDunggeunmo', sans-serif;
+      font-size: 64px;
+      color: black;
+      text-align: center;
+      transform: translateY(-12px);
+    }
+
+    .post-container {
+      position: absolute;
+      bottom: 8%;
+      left: 5%;
+      width: 1000px;
+      height: 600px;
+      background-image: url("images/post.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .poem-text {
+      font-family: 'BookkMyungjo_Bold', serif;
+      font-size: 28px;
+      white-space: pre-line;
+      line-height: 1.6;
+      color: black;
+    }
+
+    .batang-container {
+      position: absolute;
+      bottom: 3%;
+      right: 0.5%;
+      width: 400px;
+      height: 300px;
+      background-image: url("images/batang.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      z-index: 10000;
+    }
+
+    .button-row {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .button-text {
+      font-family: 'BoldDunggeunmo', sans-serif;
+      font-size: 20px;
+      color: black;
+    }
+
+    .bookbotton, .daegubotton {
+      width: 32px;
+      height: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-buttons">
+    <img src="images/sudal.png" alt="sudal" class="sudal" />
+    <img src="images/xbotton.png" alt="닫기" class="xbotton" onclick="location.href='page1.html'" />
+  </div>
+
+  <div class="title-container">
+    <div class="title-text">대구 수목원</div>
+  </div>
+
+  <div class="post-container">
+    <div class="poem-text">
+식물은 죽지 않아, 소마. 끊임없이 순환하며 새 모습으로
+계속 재탄생해. 하지만 그건 식물에만 국한된 것이 아니라,
+이 행성의 시스템이야. 모든 생명은 탄생과 죽음을 반복하고
+그 과정에서 자신의 삶을 씨앗처럼 뿌린다는 걸, 비록 나는
+없더라도 내 삶은 이 행성 전체에 퍼져 다른 생명을 꽃피우게
+한다는 걸 잊지 마.
+미안해. 내가 너한테 해줄 수 있는 게 이런 말뿐이야.
+그래도 기억해줘. 이 말을 너한테 꼭 해주고 싶었어.
+흙이 무너지던 순간에 말이야.
+
+<이끼숲> 천선란 / 자이언트북스
+    </div>
+  </div>
+
+  <div class="batang-container">
+    <div class="button-row">
+      <div class="button-text">도서 구매</div>
+      <a href="https://www.yes24.com/product/goods/118597564" target="_blank">
+        <img src="images/bookbotton.png" alt="book button" class="bookbotton" />
+      </a>
+    </div>
+    <div class="button-row">
+      <div class="button-text">위치 확인</div>
+      <a href="https://naver.me/F5D76B9r" target="_blank">
+        <img src="images/daegubotton.png" alt="daegu button" class="daegubotton" />
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>
