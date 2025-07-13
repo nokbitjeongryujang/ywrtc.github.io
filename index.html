@@ -86,12 +86,16 @@
       margin-right: 20px;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      display: inline-block;
       transition: transform 0.3s;
+      display: inline-block;
     }
 
     .slider-container img:hover {
       transform: scale(1.05);
+    }
+
+    .slider-container a {
+      display: inline-block;
     }
 
     @media (max-width: 768px) {
@@ -116,7 +120,7 @@
 
     @media (max-width: 480px) {
       .slider-container img {
-        width: 80%;
+        width: 130px;
         margin-right: 10px;
       }
     }
@@ -132,14 +136,14 @@
   <!-- 제목 -->
   <div class="title">읽는도시 읽는당신</div>
 
-  <!-- 카드 슬라이드 (east 클릭 시 page1.html 이동) -->
-<div class="slider-container">
-  <img src="https://kongbiii.github.io/images/east.png" alt="카드 east">
-  <img src="https://kongbiii.github.io/images/north.png" alt="카드 north">
-  <a href="page1.html">
-    <img src="https://kongbiii.github.io/images/south.png" alt="카드 south">
-  </a>
-  <img src="https://kongbiii.github.io/images/west.png" alt="카드 west">
-</div>
+  <!-- 카드 슬라이드 -->
+  <div class="slider-container">
+    <img src="https://kongbiii.github.io/images/east.png" alt="카드 east">
+    <img src="https://kongbiii.github.io/images/north.png" alt="카드 north">
+    <a href="page1.html">
+      <img src="https://kongbiii.github.io/images/south.png" alt="카드 south">
+    </a>
+    <img src="https://kongbiii.github.io/images/west.png" alt="카드 west">
+  </div>
 </body>
 </html>
