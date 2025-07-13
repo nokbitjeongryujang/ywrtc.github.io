@@ -22,24 +22,22 @@
     }
 
     body {
-      width: 100vw;
-      height: 100vh;
-      overflow-y: auto;
-      background-image: url("images/neungback.png");
+      background: url("images/neungback.png") no-repeat center center fixed;
       background-size: cover;
-      background-position: center;
       font-family: 'BookkMyungjo_Bold', serif;
       color: black;
+      overflow-y: auto;
+      min-height: 100vh;
       position: relative;
     }
 
     .top-buttons {
-      position: absolute;
-      top: 20px;
-      right: 20px;
+      position: fixed;
+      top: 15px;
+      right: 15px;
       display: flex;
-      align-items: center;
-      gap: 10px;
+      gap: 8px;
+      z-index: 1000;
     }
 
     .sudal, .xbotton {
@@ -49,82 +47,70 @@
     }
 
     .title-container {
-      position: absolute;
-      top: 35px;
-      right: 240px;
-      width: 600px;
-      height: 150px;
+      margin: 100px auto 20px;
+      width: 90%;
+      max-width: 600px;
+      height: auto;
       background-image: url("images/title.png");
-      background-size: cover;
+      background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
       display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 9999;
     }
 
     .title-text {
       font-family: 'BoldDunggeunmo', sans-serif;
-      font-size: 64px;
-      color: black;
+      font-size: 48px;
+      padding: 20px;
       text-align: center;
-      transform: translateY(-12px);
     }
 
     .post-container {
-      position: absolute;
-      bottom: 8%;
-      left: 5%;
-      width: 1000px;
-      height: 600px;
+      margin: 0 auto;
+      width: 90%;
+      max-width: 900px;
       background-image: url("images/post.png");
-      background-size: contain;
+      background-size: 100% auto;
       background-repeat: no-repeat;
       background-position: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      padding: 60px 30px;
       text-align: center;
-      padding: 20px;
     }
 
     .poem-text {
-      font-family: 'BookkMyungjo_Bold', serif;
-      font-size: 28px;
+      font-size: 20px;
+      line-height: 1.7;
       white-space: pre-line;
-      line-height: 1.6;
-      color: black;
     }
 
     .batang-container {
-      position: absolute;
-      bottom: 3%;
-      right: 0.5%;
-      width: 400px;
-      height: 300px;
+      margin: 40px auto;
+      width: 90%;
+      max-width: 380px;
+      height: auto;
       background-image: url("images/batang.png");
-      background-size: contain;
+      background-size: 100% auto;
       background-repeat: no-repeat;
       background-position: center;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       gap: 20px;
-      z-index: 10000;
+      padding: 40px 0;
     }
 
     .button-row {
       display: flex;
       align-items: center;
-      gap: 13px;
+      gap: 10px;
     }
 
     .button-text {
       font-family: 'BoldDunggeunmo', sans-serif;
-      font-size: 20px;
-      color: black;
+      font-size: 18px;
     }
 
     .bookbotton, .daegubotton {
@@ -132,40 +118,13 @@
       height: 30px;
     }
 
-    /* 모바일 반응형 설정 */
-    @media (max-width: 768px) {
-      .title-container {
-        top: 20px;
-        right: 10px;
-        width: 90vw;
-        height: 80px;
-        background-size: contain;
-      }
-
+    @media (max-width: 480px) {
       .title-text {
         font-size: 32px;
-        transform: translateY(0);
-      }
-
-      .post-container {
-        position: relative;
-        width: 90vw;
-        height: auto;
-        margin: 20px auto;
-        padding: 20px;
       }
 
       .poem-text {
         font-size: 16px;
-        line-height: 1.5;
-      }
-
-      .batang-container {
-        position: relative;
-        width: 80vw;
-        height: auto;
-        margin: 0 auto 20px auto;
-        background-size: contain;
       }
 
       .button-text {
@@ -177,12 +136,7 @@
         height: 28px;
       }
 
-      .top-buttons {
-        top: 10px;
-        right: 10px;
-      }
-
-      .sudal, .xbotton {
+      .top-buttons img {
         width: 24px;
         height: 24px;
       }
@@ -202,14 +156,14 @@
 
   <div class="post-container">
     <div class="poem-text">
-어둠속에서 담배를 핀다 칠흑 같은 바다의 어둠과 침묵
-그리고 소멸하는 시간 속에서 살아오는 허무의 꽃
-꿈인지도 모른다 꿈의 꿈인지도 모른다 몽환의 화려한 불꽃
-꽃가루 언제부턴가 눈에서 귀에서 검은 입속에서 피어오르는
-따뜻한 꽃 웃음의 끝 울음의 끝에서 환히 피어오르는 허무의 꽃
-가슴 저 끝에 뿌리박은 듯 뻗어 올라 가슴 가득
-뒤덮은 능소화 푸른 잎 속에 피어오르는 주황빛 저 꽃
-
+어둠속에서 담배를 핀다 칠흑 같은 바다의 어둠과 침묵  
+그리고 소멸하는 시간 속에서 살아오는 허무의 꽃  
+꿈인지도 모른다 꿈의 꿈인지도 모른다 몽환의 화려한 불꽃  
+꽃가루 언제부턴가 눈에서 귀에서 검은 입속에서 피어오르는  
+따뜻한 꽃 웃음의 끝 울음의 끝에서 환히 피어오르는 허무의 꽃  
+가슴 저 끝에 뿌리박은 듯 뻗어 올라 가슴 가득  
+뒤덮은 능소화 푸른 잎 속에 피어오르는 주황빛 저 꽃  
+  
 <능소화> 윤재철 / 솔의 시인
     </div>
   </div>
