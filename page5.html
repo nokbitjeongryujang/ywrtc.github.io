@@ -73,7 +73,7 @@ body {
   top: 40%; /* 기존 50%에서 위로 */
   left: 50.5%;
   transform: translate(-50%, -50%);
-  font-size: 9vw;
+  font-size: 8vw;
   color: #000;
   white-space: nowrap;
 }
@@ -94,7 +94,7 @@ body {
 .post-text {
   width: 85%;
   font-family: 'BookkMyungjo_Bold', serif;
-  font-size: 3.7vw; /* 줄임 */
+  font-size: 3.5vw; /* 줄임 */
   line-height: 1.5;
   color: #333;
   text-align: center;
@@ -102,12 +102,12 @@ body {
 
 .nemo-box {
   width: 100%;
-  max-width: 6000px;
-  aspect-ratio: 5 / 1.2; /* 이미지 원본 비율 맞춰서 조절 */
+  max-width: 6000px; /* 유지 가능 */
   background-image: url('images/batang.png');
-  background-size: contain;
+  background-size: 100% 100%
   background-repeat: no-repeat;
   background-position: center;
+  padding: 40px 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -133,7 +133,9 @@ body {
 .nemo-content img {
   height: 5.5vw;
   max-height: 24px;
-}  </style>
+}
+
+  </style>
 </head>
 <body>
   <div class="container">
