@@ -78,24 +78,6 @@
       white-space: nowrap;
     }
 
-    .typing-text {
-      display: inline;
-    }
-
-    .cursor {
-      display: inline-block;
-      width: 1.2vw;
-      height: 1.2em;
-      background-color: #333;
-      margin-left: 2px;
-      animation: blink 1s step-end infinite;
-      vertical-align: middle;
-    }
-
-    @keyframes blink {
-      50% { opacity: 0; }
-    }
-
     .post-box {
       position: relative;
       margin: 4vh 0;
@@ -109,23 +91,43 @@
       justify-content: center;
     }
 
-    .post-text {
+    .post-text,
+    .guide-text {
       width: 85%;
       font-family: 'BookkMyungjo_Bold', serif;
       font-size: 3.5vw;
       line-height: 1.5;
       color: #333;
       text-align: center;
+      position: absolute;
+      transition: opacity 1.2s ease-in-out;
+    }
+
+    .post-text {
+      opacity: 0;
+    }
+
+    .post-text.visible {
+      opacity: 1;
+    }
+
+    .guide-text {
+      opacity: 1;
+      z-index: 2;
+    }
+
+    .guide-text.hidden {
+      opacity: 0;
     }
 
     .nemo-box {
       width: 100%;
       max-width: 6000px;
       background-image: url('images/batang.png');
-      background-size: 80% 150%;
+      background-size: 100% 90%;
       background-repeat: no-repeat;
       background-position: center;
-      padding: 40px 10px;
+      padding: 40px 0;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -165,14 +167,16 @@
     <!-- 제목 -->
     <div class="title-box">
       <img src="images/title.png" alt="제목 배경" />
-      <div class="title-text">
-        <span id="typing-title" class="typing-text"></span><span id="title-cursor" class="cursor"></span>
-      </div>
+      <div class="title-text">&lt;앞산 전망대&gt;</div>
     </div>
 
-    <!-- 책 구절 -->
-    <div class="post-box">
-      <div class="post-text">
+    <!-- 책 구절 (터치 시 등장) -->
+    <div class="post-box" id="post-box">
+      <div class="guide-text" id="guide-text">
+        앞산 전망대가 떠오르는 책 구절을 만나보세요.<br>
+        이 부분을 터치하면 책 구절이 떠오릅니다.
+      </div>
+      <div class="post-text" id="post-text">
         늘 이렇지, 펄롱은 생각했다.<br>
         언제나 쉼 없이 자동으로 다음 단계로,<br>
         다음 해야 할 일로 넘어갔다.<br>
@@ -200,25 +204,16 @@
     </div>
   </div>
 
-  <!-- 제목 타이핑 효과 -->
+  <!-- 터치 시 텍스트 전환 스크립트 -->
   <script>
-    const titleText = "<앞산 전망대>";
-    const titleTarget = document.getElementById("typing-title");
-    const cursor = document.getElementById("title-cursor");
+    const postBox = document.getElementById('post-box');
+    const postText = document.getElementById('post-text');
+    const guideText = document.getElementById('guide-text');
 
-    let idx = 0;
-
-    function typeTitle() {
-      if (idx < titleText.length) {
-        titleTarget.innerHTML += titleText[idx];
-        idx++;
-        setTimeout(typeTitle, 150); // 속도 조절
-      } else {
-        cursor.style.display = "none"; // 타이핑 끝나면 커서 제거
-      }
-    }
-
-    window.addEventListener("load", typeTitle);
+    postBox.addEventListener('click', () => {
+      postText.classList.add('visible');
+      guideText.classList.add('hidden');
+    });
   </script>
 </body>
 </html>
