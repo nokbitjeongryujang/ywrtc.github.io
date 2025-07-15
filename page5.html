@@ -15,22 +15,22 @@
       src: url('images/BookkMyungjo_Bold.woff') format('woff');
     }
 
-    body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100vh;
-      background-image: url('images/apsanbackk.png');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      font-family: 'BoldDunggeunmo', sans-serif;
-      color: #000;
-      text-align: center;
-      overflow: hidden;
-      position: relative;
-    }
-
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url('images/apsanbackk.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-family: 'BoldDunggeunmo', sans-serif;
+  color: #000;
+  text-align: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+}
     .container {
       width: 100%;
       height: 100%;
@@ -103,11 +103,11 @@
 .nemo-box {
   width: 100%;
   max-width: 6000px;
+  aspect-ratio: 5 / 1.2; /* 이미지 원본 비율 맞춰서 조절 */
   background-image: url('images/batang.png');
-  background-size: 100% auto;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  padding: 13px 0; /* 🔽 세로 크기 줄이기 */
   display: flex;
   justify-content: center;
   align-items: center;
