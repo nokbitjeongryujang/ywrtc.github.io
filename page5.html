@@ -45,6 +45,7 @@
       justify-content: center;
       align-items: center;
       padding: 16px;
+      position: relative;
     }
 
     .top-icons {
@@ -62,46 +63,26 @@
     }
 
     .title-box {
-      position: relative;
-      margin-top: 30px;
+      position: absolute;
+      top: 120px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 0;
     }
 
     .title-box img {
       width: 135%;
+      height: 70px;
       max-width: none;
-      height: auto;
-      margin-left: -17.5%;
     }
 
     .title-text {
-      position: absolute;
-      top: 40%;
-      left: 50.5%;
-      transform: translate(-50%, -50%);
-      font-size: 8vw;
-      color: #000;
-      white-space: nowrap;
-    }
-
-    .typing-text {
-      display: inline;
-    }
-
-    .cursor {
-      display: inline-block;
-      width: 1.2vw;
-      height: 1.2em;
-      background-color: #333;
-      margin-left: 2px;
-      animation: blink 1s step-end infinite;
-      vertical-align: middle;
-    }
-
-    @keyframes blink {
-      50% { opacity: 0; }
+      display: none; /* 타이핑 텍스트는 숨김 처리 */
     }
 
     .nemo-box {
+      position: relative;
+      z-index: 1;
       width: 100%;
       display: flex;
       justify-content: center;
@@ -121,7 +102,7 @@
       align-items: center;
       gap: 8px;
       text-decoration: none;
-      color: #fff;
+      color: #000;
       font-size: 4vw;
       font-family: 'BoldDunggeunmo', sans-serif;
     }
@@ -136,7 +117,7 @@
       margin-top: 32px;
       width: 90%;
       aspect-ratio: 4 / 5;
-      background-image: url('images/postit (3).png');
+      background-image: url('images/postit (5).png');
       background-size: cover;
       background-position: center;
       display: flex;
@@ -185,15 +166,7 @@
       <img src="images/xbotton.png" alt="닫기 버튼" onclick="history.back();" />
     </div>
 
-    <!-- 제목 -->
-    <div class="title-box">
-      <img src="images/title.png" alt="제목 배경" />
-      <div class="title-text">
-        <span id="typing-title" class="typing-text"></span><span id="title-cursor" class="cursor"></span>
-      </div>
-    </div>
-
-    <!-- 버튼: 제목 아래 -->
+    <!-- 버튼 -->
     <div class="nemo-box">
       <div class="nemo-content">
         <a href="https://www.yes24.com/product/goods/123400303" target="_blank">
@@ -205,6 +178,11 @@
           <img src="images/newpin.png" alt="위치확인 버튼">
         </a>
       </div>
+    </div>
+
+    <!-- 제목 이미지 (버튼 뒤에 배경처럼 배치됨) -->
+    <div class="title-box">
+      <img src="images/title.png" alt="제목 배경" />
     </div>
 
     <!-- 책 구절 -->
@@ -228,26 +206,8 @@
     </div>
   </div>
 
-  <!-- 타이핑 + 터치 스크립트 -->
   <script>
-    // 제목 타이핑
-    const titleText = "<앞산 전망대>";
-    const titleTarget = document.getElementById("typing-title");
-    const cursor = document.getElementById("title-cursor");
-
-    let idx = 0;
-    function typeTitle() {
-      if (idx < titleText.length) {
-        titleTarget.innerHTML += titleText[idx];
-        idx++;
-        setTimeout(typeTitle, 150);
-      } else {
-        cursor.style.display = "none";
-      }
-    }
-    window.addEventListener("load", typeTitle);
-
-    // 책 구절 보기
+    // 책 구절 보기 효과
     const postBox = document.getElementById('post-box');
     const postText = document.getElementById('post-text');
     const guideText = document.getElementById('guide-text');
