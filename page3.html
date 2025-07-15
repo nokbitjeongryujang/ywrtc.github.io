@@ -2,185 +2,226 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>고산골 공룡공원</title>
   <style>
     @font-face {
       font-family: 'BoldDunggeunmo';
       src: url('images/BoldDunggeunmo.woff') format('woff');
     }
-
     @font-face {
       font-family: 'BookkMyungjo_Bold';
       src: url('images/BookkMyungjo_Bold.woff') format('woff');
     }
-
-    * {
+    @font-face {
+      font-family: 'Juriche';
+      src: url('images/juriche.woff') format('woff');
+    }
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
-      background-image: url("images/gongryongback.png");
+      width: 100%;
+      min-height: 100vh;
+      background-image: url('images/gongryongbackk.png');
       background-size: cover;
+      background-repeat: no-repeat;
       background-position: center;
-      font-family: 'BookkMyungjo_Bold', serif;
-      color: black;
+      font-family: 'BoldDunggeunmo', sans-serif;
+      color: #000;
+      text-align: center;
+      overflow-x: hidden;
+      overflow-y: auto;
       position: relative;
     }
-
-    .top-buttons {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .sudal {
-      width: 30px;
-      height: 30px;
-      cursor: pointer;
-    }
-
-    .xbotton {
-      width: 30px;
-      height: 30px;
-      cursor: pointer;
-    }
-
-    .title-container {
-      position: absolute;
-      top: 35px;
-      right: 240px;
-      width: 600px;
-      height: 150px;
-      background-image: url("images/title.png");
-      background-size: 600px 150px;
-      background-repeat: no-repeat;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-    }
-
-    .title-text {
-      font-family: 'BoldDunggeunmo', sans-serif;
-      font-size: 60px;
-      color: black;
-      text-align: center;
-      transform: translateY(-12px);
-    }
-
-    .post-container {
-      position: absolute;
-      bottom: 8%;
-      left: 5%;
-      width: 1000px;
-      height: 600px;
-      background-image: url("images/post.png");
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .poem-text {
-      font-family: 'BookkMyungjo_Bold', serif;
-      font-size: 20px;
-      white-space: pre-line;
-      line-height: 1.6;
-      color: black;
-    }
-
-    .batang-container {
-      position: absolute;
-      bottom: 3%;
-      right: 0.5%;
-      width: 400px;
-      height: 300px;
-      background-image: url("images/batang.png");
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
+    .container {
+      width: 100%;
+      box-sizing: border-box;
       display: flex;
       flex-direction: column;
+      justify-content: flex-start;
       align-items: center;
-      justify-content: center;
-      gap: 20px;
-      z-index: 10000;
+      padding: 16px;
+      position: relative;
     }
-
-    .button-row {
+    .top-icons {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      gap: 5px;
+    }
+    .top-icons img {
+      width: 8vw;
+      max-width: 30px;
+      cursor: pointer;
+    }
+    .title-text {
+      margin-top: 65px;
+      font-size: 10vw;
+      color: lightgray;
+      white-space: nowrap;
+      z-index: 3;
+      position: relative;
+    }
+    .typing-text {
+      display: inline;
+    }
+    .cursor {
+      display: inline-block;
+      width: 1.2vw;
+      height: 1.2em;
+      background-color: #333;
+      margin-left: 2px;
+      animation: blink 1s step-end infinite;
+      vertical-align: middle;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+    .title-img {
+      margin-top: 10px;
+      width: 70%;
+      height: 70px;
+      margin-left: -1%;
+      position: relative;
+      z-index: 1;
+    }
+    .nemo-box {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: -53px;
+      margin-bottom: 16px;
+    }
+    .nemo-content {
+      display: flex;
+      flex-direction: row;
+      gap: 23px;
+    }
+    .nemo-content a {
       display: flex;
       align-items: center;
-      gap: 13px;
-    }
-
-    .button-text {
+      gap: 8px;
+      text-decoration: none;
+      color: #000;
+      font-size: 4vw;
       font-family: 'BoldDunggeunmo', sans-serif;
-      font-size: 20px;
-      color: black;
     }
-
-    .bookbotton, .daegubotton {
-      width: 32px;
-      height: 30px;
+    .nemo-content img {
+      height: 6vw;
+      max-height: 28px;
+    }
+    .post-box {
+      position: relative;
+      margin-top: 24px;
+      width: 90%;
+      aspect-ratio: 4 / 5;
+      background-image: url('images/postit (5).png');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .post-text,
+    .guide-text {
+      width: 85%;
+      font-size: 2.6vw;
+      line-height: 1.5;
+      text-align: center;
+      position: absolute;
+      transition: opacity 1.2s ease-in-out;
+    }
+    .post-text {
+      font-family: 'BookkMyungjo_Bold', serif;
+      color: #333;
+      opacity: 0;
+    }
+    .post-text.visible {
+      opacity: 1;
+    }
+    .guide-text {
+      font-family: 'Juriche', sans-serif;
+      font-size: 5.2vw;
+      color: #333;
+      opacity: 1;
+      z-index: 2;
+    }
+    .guide-text.hidden {
+      opacity: 0;
     }
   </style>
 </head>
 <body>
-
-  <div class="top-buttons">
-    <img src="images/sudal.png" alt="sudal" class="sudal" />
-    <img src="images/xbotton.png" alt="닫기" class="xbotton" onclick="location.href='page1.html'" />
-  </div>
-
-  <div class="title-container">
-    <div class="title-text">고산골 공룡공원</div>
-  </div>
-
-  <div class="post-container">
-    <div class="poem-text">
-공룡은 운석 충돌로 사랑했다고 추정된다
-현재 사랑이 임박한 생물은 5백 종이 넘는다
-우리 모두 사랑 위기종을 보호합시다
-어젯밤 우리가 멸종의 말을 속삭이는 장면
-아주 조심스럽게
-멸종해, 나의 멸종을 받아줘
-우리가 딛고 있는 행성, 멸종의 보금자리에서
-공룡들은 사랑했다 번식했다 그리하여 멸종했다
-어린아이들은 사랑한 공룡들의 이름을 외우고
-분류하고 그려내고 상상하고 그리워하고 아이들은 멸종하고
-
-<사랑과 멸종을 바꿔 읽어보십시오> 유선혜 / 문학과지성사
+  <div class="container">
+    <div class="top-icons">
+      <img src="images/xbotton.png" alt="닫기 버튼" onclick="history.back();" />
+    </div>
+    <div class="title-text">
+      <span id="typing-title" class="typing-text"></span><span id="title-cursor" class="cursor"></span>
+    </div>
+    <img class="title-img" src="images/title.png" alt="제목 배경" />
+    <div class="nemo-box">
+      <div class="nemo-content">
+        <a href="https://www.yes24.com/Product/UsedShopHub/Hub/136299730" target="_blank">
+          도서 구매
+          <img src="images/newbook.png" alt="도서구매 버튼">
+        </a>
+        <a href="https://naver.me/5138vlJp" target="_blank">
+          위치 확인
+          <img src="images/newpin.png" alt="위치확인 버튼">
+        </a>
+      </div>
+    </div>
+    <div class="post-box" id="post-box">
+      <div class="guide-text" id="guide-text">
+        이곳을 터치하면<br>
+        고산골 공룡공원이 떠오르는<br>
+        책 구절을 만날 수 있어요.
+      </div>
+      <div class="post-text" id="post-text">
+        공룡은 운석 충돌로 사랑했다고 추정된다<br>
+        현재 사랑이 임박한 생물은 5백 종이 넘는다<br>
+        우리 모두 사랑 위기종을 보호합시다<br>
+        어젯밤 우리가 멸종의 말을 속삭이는 장면<br>
+        아주 조심스럽게<br>
+        멸종해, 나의 멸종을 받아줘<br>
+        우리가 딛고 있는 행성, 멸종의 보금자리에서<br>
+        공룡들은 사랑했다 번식했다 그리하여 멸종했다<br>
+        어린아이들은 사랑한 공룡들의 이름을 외우고<br>
+        분류하고 그려내고 상상하고 그리워하고 아이들은 멸종하고<br><br>
+        &lt;사랑과 멸종을 바꿔 읽어보십시오&gt;<br>
+        유선혜 / 문학과지성사
+      </div>
     </div>
   </div>
 
-  <div class="batang-container">
-    <div class="button-row">
-      <div class="button-text">도서 구매</div>
-      <a href="https://www.yes24.com/Product/UsedShopHub/Hub/136299730" target="_blank">
-        <img src="images/bookbotton.png" alt="book button" class="bookbotton" />
-      </a>
-    </div>
-    <div class="button-row">
-      <div class="button-text">위치 확인</div>
-      <a href="https://naver.me/5138vlJp" target="_blank">
-        <img src="images/daegubotton.png" alt="daegu button" class="daegubotton" />
-      </a>
-    </div>
-  </div>
+  <script>
+    const titleText = "<고산골 공룡공원>";
+    const titleTarget = document.getElementById("typing-title");
+    const cursor = document.getElementById("title-cursor");
+    let idx = 0;
+    function typeTitle() {
+      if (idx < titleText.length) {
+        titleTarget.innerHTML += titleText[idx];
+        idx++;
+        setTimeout(typeTitle, 150);
+      } else {
+        cursor.style.display = "none";
+      }
+    }
+    window.addEventListener("load", typeTitle);
 
+    const postBox = document.getElementById('post-box');
+    const postText = document.getElementById('post-text');
+    const guideText = document.getElementById('guide-text');
+    postBox.addEventListener('click', () => {
+      postText.classList.add('visible');
+      guideText.classList.add('hidden');
+    });
+  </script>
 </body>
 </html>
