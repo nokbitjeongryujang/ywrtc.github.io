@@ -78,6 +78,24 @@
       white-space: nowrap;
     }
 
+    .typing-text {
+      display: inline;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 1.2vw;
+      height: 1.2em;
+      background-color: #333;
+      margin-left: 2px;
+      animation: blink 1s step-end infinite;
+      vertical-align: middle;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
     .post-box {
       position: relative;
       margin: 4vh 0;
@@ -100,26 +118,11 @@
       text-align: center;
     }
 
-    /* 깜빡이는 커서 */
-    .cursor {
-      display: inline-block;
-      width: 1.2vw;
-      height: 1.2em;
-      background-color: #333;
-      margin-left: 2px;
-      animation: blink 1s step-end infinite;
-      vertical-align: middle;
-    }
-
-    @keyframes blink {
-      50% { opacity: 0; }
-    }
-
     .nemo-box {
       width: 100%;
       max-width: 6000px;
       background-image: url('images/batang.png');
-      background-size: 100% 150%;
+      background-size: 90% 150%;
       background-repeat: no-repeat;
       background-position: center;
       padding: 40px 10px;
@@ -162,12 +165,24 @@
     <!-- 제목 -->
     <div class="title-box">
       <img src="images/title.png" alt="제목 배경" />
-      <div class="title-text">&lt;앞산 전망대&gt;</div>
+      <div class="title-text">
+        <span id="typing-title" class="typing-text"></span><span id="title-cursor" class="cursor"></span>
+      </div>
     </div>
 
     <!-- 책 구절 -->
     <div class="post-box">
-      <div class="post-text" id="typing-text"><span id="text-content"></span><span class="cursor"></span></div>
+      <div class="post-text">
+        늘 이렇지, 펄롱은 생각했다.<br>
+        언제나 쉼 없이 자동으로 다음 단계로,<br>
+        다음 해야 할 일로 넘어갔다.<br>
+        멈춰서 생각하고 돌아볼 시간이 있다면,<br>
+        삶이 어떨까, 펄롱은 생각했다.<br>
+        삶이 달라질까 아니면 그래도 마찬가지일까?<br>
+        아니면 그저 일상이 엉망진창 흐트러지고 말까?<br><br>
+        &lt;이처럼 사소한 것들&gt;<br>
+        클레어 키건 저, 홍한별 역 / 다산 책방
+      </div>
     </div>
 
     <!-- 버튼 박스 -->
@@ -185,31 +200,25 @@
     </div>
   </div>
 
-  <!-- 타이핑 효과 스크립트 -->
+  <!-- 제목 타이핑 효과 -->
   <script>
-    const typingTarget = document.getElementById("text-content");
-    const typingText = `늘 이렇지, 펄롱은 생각했다.
-언제나 쉼 없이 자동으로 다음 단계로,
-다음 해야 할 일로 넘어갔다.
-멈춰서 생각하고 돌아볼 시간이 있다면,
-삶이 어떨까, 펄롱은 생각했다.
-삶이 달라질까 아니면 그래도 마찬가지일까?
-아니면 그저 일상이 엉망진창 흐트러지고 말까?
+    const titleText = "<앞산 전망대>";
+    const titleTarget = document.getElementById("typing-title");
+    const cursor = document.getElementById("title-cursor");
 
-<이처럼 사소한 것들>
-클레어 키건 저, 홍한별 역 / 다산 책방`;
+    let idx = 0;
 
-    let i = 0;
-    function type() {
-      if (i < typingText.length) {
-        const char = typingText[i] === "\n" ? "<br>" : typingText[i];
-        typingTarget.innerHTML += char;
-        i++;
-        setTimeout(type, 40);
+    function typeTitle() {
+      if (idx < titleText.length) {
+        titleTarget.innerHTML += titleText[idx];
+        idx++;
+        setTimeout(typeTitle, 100); // 속도 조절
+      } else {
+        cursor.style.display = "none"; // 타이핑 끝나면 커서 제거
       }
     }
 
-    window.addEventListener("load", type);
+    window.addEventListener("load", typeTitle);
   </script>
 </body>
 </html>
