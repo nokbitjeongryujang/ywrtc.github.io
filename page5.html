@@ -62,30 +62,30 @@
       cursor: pointer;
     }
 
-    .title-box {
-      position: absolute;
-      top: 120px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 0;
-    }
+.title-box {
+  position: absolute;
+  top: 160px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1; /* title.png는 버튼보다 아래 */
+}
 
-    .title-box img {
-      width: 135%;
-      height: 70px; /* 세로 축소 */
-      max-width: none;
-    }
+.title-box img {
+  width: 135%;
+  height: 70px;
+  max-width: none;
+}
 
-    .title-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 8vw;
-      color: #000;
-      white-space: nowrap;
-      z-index: 1;
-    }
+.title-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 8vw;
+  color: #000;
+  white-space: nowrap;
+  z-index: 2; /* 텍스트는 버튼 위에 보여야 함 */
+}
 
     .typing-text {
       display: inline;
