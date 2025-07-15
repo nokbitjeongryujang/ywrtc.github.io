@@ -72,17 +72,42 @@
 
     .title-box img {
       width: 135%;
-      height: 70px;
+      height: 70px; /* 세로 축소 */
       max-width: none;
     }
 
     .title-text {
-      display: none; /* 타이핑 텍스트는 숨김 처리 */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 8vw;
+      color: #000;
+      white-space: nowrap;
+      z-index: 1;
+    }
+
+    .typing-text {
+      display: inline;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 1.2vw;
+      height: 1.2em;
+      background-color: #333;
+      margin-left: 2px;
+      animation: blink 1s step-end infinite;
+      vertical-align: middle;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
     }
 
     .nemo-box {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       width: 100%;
       display: flex;
       justify-content: center;
@@ -166,7 +191,7 @@
       <img src="images/xbotton.png" alt="닫기 버튼" onclick="history.back();" />
     </div>
 
-    <!-- 버튼 -->
+    <!-- 도서 구매 / 위치 확인 버튼 -->
     <div class="nemo-box">
       <div class="nemo-content">
         <a href="https://www.yes24.com/product/goods/123400303" target="_blank">
@@ -180,12 +205,15 @@
       </div>
     </div>
 
-    <!-- 제목 이미지 (버튼 뒤에 배경처럼 배치됨) -->
+    <!-- 제목 이미지 + 텍스트 (버튼 뒤의 배경처럼) -->
     <div class="title-box">
       <img src="images/title.png" alt="제목 배경" />
+      <div class="title-text">
+        <span id="typing-title" class="typing-text"></span><span id="title-cursor" class="cursor"></span>
+      </div>
     </div>
 
-    <!-- 책 구절 -->
+    <!-- 책 구절 영역 -->
     <div class="post-box" id="post-box">
       <div class="guide-text" id="guide-text">
         이곳을 터치하면<br>
@@ -206,8 +234,26 @@
     </div>
   </div>
 
+  <!-- 타이핑 + 터치 효과 스크립트 -->
   <script>
-    // 책 구절 보기 효과
+    // 제목 타이핑
+    const titleText = "<앞산 전망대>";
+    const titleTarget = document.getElementById("typing-title");
+    const cursor = document.getElementById("title-cursor");
+
+    let idx = 0;
+    function typeTitle() {
+      if (idx < titleText.length) {
+        titleTarget.innerHTML += titleText[idx];
+        idx++;
+        setTimeout(typeTitle, 150);
+      } else {
+        cursor.style.display = "none";
+      }
+    }
+    window.addEventListener("load", typeTitle);
+
+    // 책 구절 보기
     const postBox = document.getElementById('post-box');
     const postText = document.getElementById('post-text');
     const guideText = document.getElementById('guide-text');
