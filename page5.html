@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>앞산 전망대</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
   <style>
     @font-face {
       font-family: 'BoldDunggeunmo';
@@ -30,7 +31,7 @@
     .container {
       max-width: 430px;
       margin: 0 auto;
-      padding: 20px 10px;
+      padding: 10px;
     }
 
     .top-icons {
@@ -50,23 +51,23 @@
     }
 
     .title-box img {
-      width: 250px;
+      width: 160px;
     }
 
     .title-text {
       position: absolute;
-      top: 42%;
+      top: 35%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 27px;
+      font-size: 22px;
       color: #000;
     }
 
     .post-box {
       position: relative;
-      margin: 30px auto;
-      width: 320px;
-      height: 400px;
+      margin: 20px auto;
+      width: 300px;
+      height: 260px;
       background-image: url('images/post.png');
       background-size: cover;
       background-position: center;
@@ -78,17 +79,17 @@
     .post-text {
       width: 85%;
       font-family: 'BookkMyungjo_Bold', serif;
-      font-size: 15px;
-      line-height: 1.5;
+      font-size: 10px;
+      line-height: 1.4;
       color: #333;
       text-align: center;
     }
 
     .nemo-box {
       position: relative;
-      margin: 20px auto;
-      width: 450px;
-      height: 270px;
+      margin: 10px auto;
+      width: 320px;
+      height: 100px;
       background-image: url('images/batang.png');
       background-size: contain;
       background-repeat: no-repeat;
@@ -102,26 +103,23 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
+      margin-left: -10px;  /* 왼쪽으로 살짝 이동 */
+      margin-top: 6px;      /* 아래로 살짝 이동 */
     }
 
     .nemo-content a {
       display: flex;
       flex-direction: column;
       align-items: center;
-  gap: 8px;
-
-  /* 위치 조정 추가 */
-  margin-left: -20px;  /* 왼쪽으로 이동 */
-  margin-top: 10px;    /* 아래로 이동 */
       text-decoration: none;
       color: #000;
-      font-size: 12px;
+      font-size: 10px;
     }
 
     .nemo-content img {
-      height: 22px;
-      margin-top: 4px;
+      height: 18px;
+      margin-top: 3px;
     }
   </style>
 </head>
