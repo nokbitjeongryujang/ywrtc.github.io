@@ -10,12 +10,18 @@
       src: url('images/BoldDunggeunmo.woff') format('woff');
     }
 
+    @font-face {
+      font-family: 'BookkMyungjo_Bold';
+      src: url('images/BookkMyungjo_Bold.woff') format('woff');
+    }
+
     body {
       margin: 0;
       padding: 0;
       background-image: url('images/apsanbackk.png');
-      background-size: cover;
+      background-size: auto;
       background-position: center;
+      background-repeat: no-repeat;
       font-family: 'BoldDunggeunmo', sans-serif;
       color: #000;
       text-align: center;
@@ -49,7 +55,7 @@
 
     .title-text {
       position: absolute;
-      top: 35%; /* 세로 중앙에서 위로 */
+      top: 42%;
       left: 50%;
       transform: translate(-50%, -50%);
       font-size: 25px;
@@ -71,7 +77,8 @@
 
     .post-text {
       width: 85%;
-      font-size: 12px;
+      font-family: 'BookkMyungjo_Bold', serif;
+      font-size: 11px;
       line-height: 1.5;
       color: #333;
       text-align: center;
@@ -80,8 +87,8 @@
     .nemo-box {
       position: relative;
       margin: 20px auto;
-      width: 450px; /* 320px x 1.2 (20% 확대) */
-      height: 200px; /* 80px x 1.2 */
+      width: 450px;
+      height: 200px;
       background-image: url('images/batang.png');
       background-size: contain;
       background-repeat: no-repeat;
@@ -116,12 +123,12 @@
 <body>
   <div class="container">
     <!-- 상단 아이콘 -->
-<div class="top-icons">
-  <img src="images/sudal.png" alt="sudal" />
-  <a href="javascript:history.back();">
-    <img src="images/xbotton.png" alt="닫기 버튼" />
-  </a>
-</div>
+    <div class="top-icons">
+      <img src="images/sudal.png" alt="sudal" />
+      <a href="javascript:history.back();">
+        <img src="images/xbotton.png" alt="닫기 버튼" />
+      </a>
+    </div>
 
     <!-- 제목 -->
     <div class="title-box">
@@ -133,8 +140,10 @@
     <div class="post-box">
       <div class="post-text">
         늘 이렇지, 펄롱은 생각했다.<br>
-        언제나 쉼 없이 자동으로 다음 단계로, 다음 해야 할 일로 넘어갔다.<br>
-        멈춰서 생각하고 돌아볼 시간이 있다면, 삶이 어떨까, 펄롱은 생각했다.<br>
+        언제나 쉼 없이 자동으로 다음 단계로,<br>
+        다음 해야 할 일로 넘어갔다.<br>
+        멈춰서 생각하고 돌아볼 시간이 있다면,<br>
+        삶이 어떨까, 펄롱은 생각했다.<br>
         삶이 달라질까 아니면 그래도 마찬가지일까?<br>
         아니면 그저 일상이 엉망진창 흐트러지고 말까?<br><br>
         &lt;이처럼 사소한 것들&gt;<br>
