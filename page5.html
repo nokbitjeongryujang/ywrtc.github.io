@@ -15,6 +15,11 @@
       src: url('images/BookkMyungjo_Bold.woff') format('woff');
     }
 
+@font-face {
+  font-family: 'Juriche';
+  src: url('images/juriche.woff') format('woff');
+}
+
     body {
       margin: 0;
       padding: 0;
@@ -129,12 +134,17 @@
       opacity: 1;
     }
 
-    .guide-text {
-      font-family: 'BoldDunggeunmo', sans-serif;
-      color: #333;
-      opacity: 1;
-      z-index: 2;
-    }
+.guide-text {
+  font-family: 'Juriche', sans-serif;
+  font-size: 3.5vw;
+  line-height: 1.5;
+  color: #333;
+  text-align: center;
+  position: absolute;
+  transition: opacity 1.2s ease-in-out;
+  opacity: 1;
+  z-index: 2;
+}
 
     .guide-text.hidden {
       opacity: 0;
@@ -195,8 +205,9 @@
     <!-- 책 구절 -->
     <div class="post-box" id="post-box">
       <div class="guide-text" id="guide-text">
-        앞산 전망대가 떠오르는 책 구절을 만나보세요.<br>
-        이 부분을 터치하면 책 구절이 떠오릅니다.
+        이곳을 터치하면<br>
+앞산 전망대가 떠오르는.<br>
+책 구절을 만날 수 있어요.
       </div>
       <div class="post-text" id="post-text">
         늘 이렇지, 펄롱은 생각했다.<br>
