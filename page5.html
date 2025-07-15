@@ -18,41 +18,45 @@
     body {
       margin: 0;
       padding: 0;
-      width: 400px;
-      height: 810px;
+      width: 500px;
+      height: 1000px;
       background-image: url('images/apsanbackk.png');
-      background-size: 400px 810px;
+      background-size: 500px 1000px;
       background-repeat: no-repeat;
-      background-position: top center;
+      background-position: center center;
       font-family: 'BoldDunggeunmo', sans-serif;
       color: #000;
       text-align: center;
       overflow: hidden;
+      position: relative;
     }
 
     .container {
       width: 100%;
       height: 100%;
-      padding: 10px;
       box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       position: relative;
     }
 
     .top-icons {
       position: absolute;
       top: 10px;
-      right: 10px;
-      display: flex;
-      gap: 5px;
+      right: 5px;
     }
 
     .top-icons img {
       width: 30px;
+      margin-left: 5px;
+      cursor: pointer;
     }
 
     .title-box {
       position: relative;
-      margin-top: 40px;
+      margin-top: 20px;
     }
 
     .title-box img {
@@ -70,7 +74,7 @@
 
     .post-box {
       position: relative;
-      margin: 30px auto;
+      margin: 20px 0;
       width: 320px;
       height: 400px;
       background-image: url('images/post.png');
@@ -92,7 +96,7 @@
 
     .nemo-box {
       position: relative;
-      margin: 10px auto;
+      margin-top: 10px;
       width: 450px;
       height: 250px;
       background-image: url('images/batang.png');
@@ -131,9 +135,7 @@
     <!-- 상단 아이콘 -->
     <div class="top-icons">
       <img src="images/sudal.png" alt="sudal" />
-      <a href="javascript:history.back();">
-        <img src="images/xbotton.png" alt="닫기 버튼" />
-      </a>
+      <img src="images/xbotton.png" alt="닫기 버튼" onclick="history.back();" />
     </div>
 
     <!-- 제목 -->
