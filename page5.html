@@ -61,19 +61,20 @@
       margin-top: 30px;
     }
 
-    .title-box img {
-      max-width: 80%;
-      height: auto;
-    }
+.title-box img {
+  max-width: 100%;
+  height: auto;
+}
 
-    .title-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 6vw;
-      color: #000;
-    }
+.title-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 6vw;
+  color: #000;
+  white-space: nowrap; /* 줄바꿈 방지 */
+}
 
     .post-box {
       position: relative;
@@ -88,50 +89,50 @@
       justify-content: center;
     }
 
-    .post-text {
-      width: 85%;
-      font-family: 'BookkMyungjo_Bold', serif;
-      font-size: 3.2vw;
-      line-height: 1.5;
-      color: #333;
-      text-align: center;
-    }
+.post-text {
+  width: 85%;
+  font-family: 'BookkMyungjo_Bold', serif;
+  font-size: 4.2vw; /* +5 */
+  line-height: 1.5;
+  color: #333;
+  text-align: center;
+}
 
-    .nemo-box {
-      width: 100%;
-      max-width: 375px;
-      background-image: url('images/batang.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      padding: 20px 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+.nemo-box {
+  width: 100%;
+  max-width: 450px; /* 20% 확대 */
+  background-image: url('images/batang.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    .nemo-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
+.nemo-content {
+  display: flex;
+  flex-direction: row; /* 세로 → 가로 정렬 */
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
 
-    .nemo-content a {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-decoration: none;
-      color: #000;
-      font-size: 3.5vw;
-    }
+.nemo-content a {
+  display: flex;
+  flex-direction: row; /* 텍스트 + 이미지 가로 정렬 */
+  align-items: center;
+  text-decoration: none;
+  color: #000;
+  font-size: 3.5vw;
+  gap: 5px;
+}
 
-    .nemo-content img {
-      height: 5.5vw;
-      max-height: 24px;
-      margin-top: 4px;
-    }
-  </style>
+.nemo-content img {
+  height: 5.5vw;
+  max-height: 24px;
+}  </style>
 </head>
 <body>
   <div class="container">
