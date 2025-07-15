@@ -89,14 +89,15 @@
       50% { opacity: 0; }
     }
 
-    .title-img {
-      margin-top: 10px;
-      width: 70%;
-      height: 70px;
-      margin-left: -30%;
-      position: relative;
-      z-index: 1;
-    }
+.title-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 가로·세로 모두 중앙 정렬 */
+  width: 115%;  /* 기존 크기 유지 */
+  height: 70px; /* 기존 세로 크기 유지 */
+  z-index: 1;
+}
 
     .nemo-box {
       position: relative;
