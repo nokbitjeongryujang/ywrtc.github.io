@@ -15,25 +15,25 @@
       src: url('images/BookkMyungjo_Bold.woff') format('woff');
     }
 
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  min-height: 100vh;
-  background-image: url('images/apsanbackk.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  font-family: 'BoldDunggeunmo', sans-serif;
-  color: #000;
-  text-align: center;
-  overflow-x: hidden;
-  overflow-y: auto;
-  position: relative;
-}
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100vh;
+      background-image: url('images/apsanbackk.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      font-family: 'BoldDunggeunmo', sans-serif;
+      color: #000;
+      text-align: center;
+      overflow-x: hidden;
+      overflow-y: auto;
+      position: relative;
+    }
+
     .container {
       width: 100%;
-      height: 100%;
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
@@ -61,22 +61,22 @@ body {
       margin-top: 30px;
     }
 
-.title-box img {
-  width: 135%;
-  max-width: none;
-  height: auto;
-  margin-left: -17.5%;
-}
+    .title-box img {
+      width: 135%;
+      max-width: none;
+      height: auto;
+      margin-left: -17.5%;
+    }
 
-.title-text {
-  position: absolute;
-  top: 40%; /* 기존 50%에서 위로 */
-  left: 50.5%;
-  transform: translate(-50%, -50%);
-  font-size: 8vw;
-  color: #000;
-  white-space: nowrap;
-}
+    .title-text {
+      position: absolute;
+      top: 40%;
+      left: 50.5%;
+      transform: translate(-50%, -50%);
+      font-size: 8vw;
+      color: #000;
+      white-space: nowrap;
+    }
 
     .post-box {
       position: relative;
@@ -91,50 +91,64 @@ body {
       justify-content: center;
     }
 
-.post-text {
-  width: 85%;
-  font-family: 'BookkMyungjo_Bold', serif;
-  font-size: 3.5vw; /* 줄임 */
-  line-height: 1.5;
-  color: #333;
-  text-align: center;
-}
+    .post-text {
+      width: 85%;
+      font-family: 'BookkMyungjo_Bold', serif;
+      font-size: 3.5vw;
+      line-height: 1.5;
+      color: #333;
+      text-align: center;
+    }
 
-.nemo-box {
-  width: 100%;
-  max-width: 6000px; /* 유지 가능 */
-  background-image: url('images/batang.png');
-  background-size: 100% 100%
-  background-repeat: no-repeat;
-  background-position: center;
-  padding: 40px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    /* 깜빡이는 커서 */
+    .cursor {
+      display: inline-block;
+      width: 1.2vw;
+      height: 1.2em;
+      background-color: #333;
+      margin-left: 2px;
+      animation: blink 1s step-end infinite;
+      vertical-align: middle;
+    }
 
-.nemo-content {
-  display: flex;
-  flex-direction: column; /* 줄 2개를 세로로 쌓음 */
-  align-items: center;
-  gap: 16px;
-}
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
 
-.nemo-content a {
-  display: flex;
-  flex-direction: row; /* 텍스트 + 이미지 가로 배치 */
-  align-items: center;
-  text-decoration: none;
-  color: #000;
-  font-size: 3.5vw;
-  gap: 8px;
-}
+    .nemo-box {
+      width: 100%;
+      max-width: 6000px;
+      background-image: url('images/batang.png');
+      background-size: 100% 90%;
+      background-repeat: no-repeat;
+      background-position: center;
+      padding: 40px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-.nemo-content img {
-  height: 5.5vw;
-  max-height: 24px;
-}
+    .nemo-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
 
+    .nemo-content a {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      text-decoration: none;
+      color: #000;
+      font-size: 3.5vw;
+      gap: 8px;
+    }
+
+    .nemo-content img {
+      height: 5.5vw;
+      max-height: 24px;
+    }
   </style>
 </head>
 <body>
@@ -153,17 +167,7 @@ body {
 
     <!-- 책 구절 -->
     <div class="post-box">
-      <div class="post-text">
-        늘 이렇지, 펄롱은 생각했다.<br>
-        언제나 쉼 없이 자동으로 다음 단계로,<br>
-        다음 해야 할 일로 넘어갔다.<br>
-        멈춰서 생각하고 돌아볼 시간이 있다면,<br>
-        삶이 어떨까, 펄롱은 생각했다.<br>
-        삶이 달라질까 아니면 그래도 마찬가지일까?<br>
-        아니면 그저 일상이 엉망진창 흐트러지고 말까?<br><br>
-        &lt;이처럼 사소한 것들&gt;<br>
-        클레어 키건 저, 홍한별 역 / 다산 책방
-      </div>
+      <div class="post-text" id="typing-text"><span id="text-content"></span><span class="cursor"></span></div>
     </div>
 
     <!-- 버튼 박스 -->
@@ -180,5 +184,32 @@ body {
       </div>
     </div>
   </div>
+
+  <!-- 타이핑 효과 스크립트 -->
+  <script>
+    const typingTarget = document.getElementById("text-content");
+    const typingText = `늘 이렇지, 펄롱은 생각했다.
+언제나 쉼 없이 자동으로 다음 단계로,
+다음 해야 할 일로 넘어갔다.
+멈춰서 생각하고 돌아볼 시간이 있다면,
+삶이 어떨까, 펄롱은 생각했다.
+삶이 달라질까 아니면 그래도 마찬가지일까?
+아니면 그저 일상이 엉망진창 흐트러지고 말까?
+
+<이처럼 사소한 것들>
+클레어 키건 저, 홍한별 역 / 다산 책방`;
+
+    let i = 0;
+    function type() {
+      if (i < typingText.length) {
+        const char = typingText[i] === "\n" ? "<br>" : typingText[i];
+        typingTarget.innerHTML += char;
+        i++;
+        setTimeout(type, 40);
+      }
+    }
+
+    window.addEventListener("load", type);
+  </script>
 </body>
 </html>
