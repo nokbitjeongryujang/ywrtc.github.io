@@ -1,149 +1,95 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>읽는도시 읽는당신</title>
-
-  <!-- 사용자 업로드 웹폰트 -->
   <style>
     @font-face {
       font-family: 'BoldDunggeunmo';
-      src: url('https://kongbiii.github.io/images/BoldDunggeunmo.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
+      src: url('images/BoldDunggeunmo.woff') format('woff');
     }
-  </style>
-
-  <style>
-    * {
-      box-sizing: border-box;
+    @font-face {
+      font-family: 'BookkMyungjo_Bold';
+      src: url('images/BookkMyungjo_Bold.woff') format('woff');
     }
 
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Arial', sans-serif;
-      background: url('https://kongbiii.github.io/images/backgroundimage.png') no-repeat center center fixed;
-      background-size: cover;
-      position: relative;
-    }
-
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
-      z-index: -1;
-    }
-
-    .title {
       font-family: 'BoldDunggeunmo', sans-serif;
-      font-size: 4rem;
+      background-image: url('images/backgroundimagee');
+      background-size: cover;
+      background-position: center;
       text-align: center;
-      color: #ead3be;
-      padding: 50px 20px 10px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+      overflow-x: hidden;
     }
 
-    .corner-icons {
-      position: absolute;
-      top: 15px;
-      right: 15px;
+    h1 {
+      color: #55316e;
+      text-shadow: 2px 2px #c9eafa;
+      font-size: 2.5rem;
+      line-height: 1.3;
+      margin-top: 30px;
+      animation: floatText 4s infinite alternate ease-in-out;
+    }
+
+    @keyframes floatText {
+      0% { transform: translateY(-10px); }
+      100% { transform: translateY(10px); }
+    }
+
+    h2 {
+      font-family: 'BookkMyungjo_Bold', serif;
+      color: #fff;
+      text-shadow:
+        2px 2px 0 #000,
+        0 0 10px rgba(255, 255, 255, 0.4);
+      margin: 20px 0 30px;
+      font-size: 1.2rem;
+      line-height: 1.5;
+    }
+
+    .card-slider {
       display: flex;
-      gap: 6px;
-    }
-
-    .corner-icons img {
-      width: 24px;
-      height: 24px;
-      border-radius: 6px;
-    }
-
-    .slider-container {
-      display: flex;
-      justify-content: center;
       overflow-x: auto;
-      overflow-y: hidden;
-      white-space: nowrap;
-      padding: 30px 20px;
-      margin: 80px auto 40px;
-      max-width: 100%;
+      scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
+      padding: 10px 0;
+      justify-content: center;
+      gap: 20px;
     }
 
-    .slider-container::-webkit-scrollbar {
+    .card-slider::-webkit-scrollbar {
       display: none;
     }
 
-    .slider-container img {
+    .card {
+      scroll-snap-align: center;
+      flex: none;
       width: 200px;
       height: auto;
-      margin-right: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s;
-      display: inline-block;
     }
 
-    .slider-container img:hover {
-      transform: scale(1.05);
-    }
-
-    .slider-container a {
-      display: inline-block;
-    }
-
-    @media (max-width: 768px) {
-      .title {
-        font-size: 3rem;
-      }
-
-      .corner-icons img {
-        width: 20px;
-        height: 20px;
-      }
-
-      .slider-container {
-        margin-top: 30px;
-      }
-
-      .slider-container img {
-        width: 160px;
-        margin-right: 16px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .slider-container img {
-        width: 130px;
-        margin-right: 10px;
-      }
+    .instruction {
+      font-family: 'BoldDunggeunmo', sans-serif;
+      color: #c2c2c2;
+      margin-top: 10px;
+      font-size: 1rem;
     }
   </style>
 </head>
 <body>
-  <!-- 우측 상단 아이콘 -->
-  <div class="corner-icons">
-    <img src="https://kongbiii.github.io/images/sudal.png" alt="코너 아이콘1">
-    <img src="https://kongbiii.github.io/images/xbotton.png" alt="코너 아이콘2">
+  <h1>읽는도시<br>읽는당신</h1>
+  <h2>신화 속 동물을 따라가면<br>새로운 공간을 읽을 수 있어요</h2>
+
+  <div class="card-slider">
+    <img src="images/eastt" alt="East Card" class="card" />
+    <img src="images/westt" alt="West Card" class="card" />
+    <img src="images/southh" alt="South Card" class="card" />
+    <img src="images/northh" alt="North Card" class="card" />
   </div>
 
-  <!-- 제목 -->
-  <div class="title">읽는도시 읽는당신</div>
-
-  <!-- 카드 슬라이드 -->
-  <div class="slider-container">
-    <img src="https://kongbiii.github.io/images/east.png" alt="카드 east">
-    <img src="https://kongbiii.github.io/images/north.png" alt="카드 north">
-    <a href="page1.html">
-      <img src="https://kongbiii.github.io/images/south.png" alt="카드 south">
-    </a>
-    <img src="https://kongbiii.github.io/images/west.png" alt="카드 west">
-  </div>
+  <div class="instruction">카드를 옆으로 넘겨보세요!</div>
 </body>
 </html>
