@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>읽는도시 읽는당신</title>
+
+  <!-- 웹폰트 -->
+  <style>
+    @font-face {
+      font-family: 'BoldDunggeunmo';
+      src: url('images/BoldDunggeunmo.woff') format('woff');
+    }
+    @font-face {
+      font-family: 'BookkMyungjo_Bold';
+      src: url('images/BookkMyungjo_Bold.woff') format('woff');
+    }
+  </style>
+
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'BoldDunggeunmo', sans-serif;
+      background: url('images/backgroundimagee.png') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .title {
+      font-size: 4rem;
+      color: #55316e;
+      text-align: center;
+      text-shadow: 2px 2px 0 #c9eafa;
+      padding: 60px 20px 10px;
+      animation: floatTitle 4s ease-in-out infinite;
+    }
+
+    @keyframes floatTitle {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .subtitle {
+      font-family: 'BookkMyungjo_Bold', serif;
+      font-size: 1.3rem;
+      color: white;
+      text-align: center;
+      text-shadow:
+        -1px -1px 0 black,
+         1px -1px 0 black,
+        -1px  1px 0 black,
+         1px  1px 0 black,
+         0px  0px 10px rgba(255,255,255,0.4);
+      margin-bottom: 20px;
+    }
+
+    .slider-container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding: 20px;
+      scroll-snap-type: x mandatory;
+    }
+
+    .slider-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .slider-container img {
+      width: 80%;
+      max-width: 300px;
+      margin-right: 20px;
+      scroll-snap-align: center;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+
+    .slider-container img:hover {
+      transform: scale(1.05);
+    }
+
+    .guide-text {
+      font-family: 'BoldDunggeunmo', sans-serif;
+      text-align: center;
+      font-size: 1rem;
+      color: #c2c2c2;
+      margin-bottom: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .title {
+        font-size: 3rem;
+      }
+      .subtitle {
+        font-size: 1rem;
+      }
+      .slider-container img {
+        width: 70%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .slider-container img {
+        width: 100%;
+        margin-right: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 제목 -->
+  <div class="title">읽는도시<br>읽는당신</div>
+
+  <!-- 설명 텍스트 -->
+  <div class="subtitle">
+    신화 속 동물을 따라가면<br>새로운 공간을 읽을 수 있어요
+  </div>
+
+  <!-- 카드 슬라이드 -->
+  <div class="slider-container">
+    <img src="images/eastt.png" alt="카드 east">
+    <img src="images/westt.png" alt="카드 west">
+    <img src="images/southh.png" alt="카드 south">
+    <img src="images/northh.png" alt="카드 north">
+  </div>
+
+  <!-- 안내 텍스트 -->
+  <div class="guide-text">카드를 옆으로 넘겨보세요!</div>
+</body>
+</html>
