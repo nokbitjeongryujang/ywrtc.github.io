@@ -51,9 +51,10 @@
       0%   { transform: translateY(-5px); }
       100% { transform: translateY(5px); }
     }
+
     .title {
       font-family: 'BoldDunggeunmo', sans-serif;
-      font-size: 3.5rem; /* 기존 2.2rem → 2배 확대 */
+      font-size: 3.5rem;
       line-height: 1.2;
       color: #55316e;
       -webkit-text-stroke: 2px #c9eafa;
@@ -62,18 +63,18 @@
     }
 
     .subtitle {
-      margin-top: 16px;
+      margin-top: 14px;
       font-family: 'BookkMyungjo', serif;
-      font-size: 1.4rem; /* 기존 1rem → 1.5배 확대 */
+      font-size: 1.4rem;
       color: #ffffff;
-      -webkit-text-stroke: 1px #000000;
+      -webkit-text-stroke: 0.4px #000000;
       text-shadow: 0 0 10px rgba(255,255,255,0.4);
-      line-height: 0.9; /* 기존 1.4 → 줄 간격 좁힘 */
+      line-height: 0.9;
       white-space: pre-line;
     }
 
     .slider {
-      margin-top: 10px;
+      margin-top: 18px; /* 간격 줄임 */
       flex: 1;
       width: 100%;
       display: flex;
@@ -82,23 +83,43 @@
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
     }
+
     .slider::-webkit-scrollbar {
       display: none;
     }
+
     .slider img {
-      flex: 0 0 auto;
-      width: 65%; /* 기존 70% → 약간 축소 */
+      width: 65%;
       max-width: 300px;
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
       margin: 0 10px;
       scroll-snap-align: center;
+      flex: 0 0 auto;
+      box-shadow: none;
+    }
+
+    .slider a.card-link {
+      flex: 0 0 auto;
+      scroll-snap-align: center;
+      margin: 0 10px;
+      display: block;
+    }
+
+    .slider a.card-link img {
+      width: 65%;
+      max-width: 300px;
+      height: auto;
       border-radius: 8px;
+      object-fit: cover;
       box-shadow: none;
     }
 
     .instruction {
       margin-top: 20px;
       font-family: 'BoldDunggeunmo', sans-serif;
-      font-size: 1.3rem; /* 기존 0.9rem → 확대 */
+      font-size: 1.3rem;
       color: #c2c2c2;
     }
   </style>
@@ -115,12 +136,12 @@
     </p>
 
     <div class="slider">
-      <img src="images/resizing_east.png"   alt="East Card" id="first-card" />
-<a href="page1.html">
-      <img src="images/resizing_south.png"  alt="South Card" />
-</a>
-      <img src="images/resizing_west.png"   alt="West Card" />
-      <img src="images/resizing_north.png"  alt="North Card" />
+      <img src="images/resizing_east.png" alt="East Card" id="first-card" />
+      <a href="page1.html" class="card-link">
+        <img src="images/resizing_south.png" alt="South Card" />
+      </a>
+      <img src="images/resizing_west.png" alt="West Card" />
+      <img src="images/resizing_north.png" alt="North Card" />
     </div>
 
     <p class="instruction">카드를 옆으로 넘겨보세요!</p>
