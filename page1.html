@@ -44,8 +44,15 @@
       50% { opacity: 0.3; }
     }
 
-    .container {
+    #scaler {
       position: relative;
+      display: flex;
+      flex-direction: column;
+      transform-origin: top center;
+      margin: 0 auto;
+    }
+
+    .container {
       width: 100%;
       max-width: 480px;
       margin: 0 auto;
@@ -60,7 +67,7 @@
     .title {
       font-family: 'BoldDunggeunmo';
       color: white;
-      font-size: 2.7rem;
+      font-size: 3.0rem;
       text-align: center;
       line-height: 1.2;
       margin-bottom: 2vh;
@@ -69,15 +76,15 @@
     .card-wrapper {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-  row-gap: 1vh;     /* ✅ 세로 간격 줄임 */
-  column-gap: 4vw;    /* 좌우 간격은 그대로 유지 */
-  padding: 0 2vw;
+      row-gap: 1vh;
+      column-gap: 4vw;
+      padding: 0 2vw;
     }
 
     .card {
       width: 100%;
       aspect-ratio: 1 / 1;
-  justify-self: center; /* ✅ 그리드 셀 안에서 가운데 정렬 */
+      justify-self: center;
       border-radius: 8px;
       overflow: hidden;
       animation: slideIn 1s ease forwards;
@@ -113,27 +120,37 @@
       color: white;
       margin-top: 2vh;
     }
-
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="title">
-      영원히 피고<br>지는 우리
-    </div>
-
-    <div class="card-wrapper">
-      <a href="page5.html" class="card"><img src="images/s4.png" alt="s4" /></a>
-      <a href="page4.html" class="card"><img src="images/s3.png" alt="s3" /></a>
-      <a href="page2.html" class="card"><img src="images/s2.png" alt="s2" /></a>
-      <a href="page6.html" class="card"><img src="images/s5.png" alt="s5" /></a>
-      <a href="page3.html" class="card"><img src="images/s1.png" alt="s1" /></a>
-      <a href="page7.html" class="card"><img src="images/s6.png" alt="s6" /></a>
-    </div>
-
-    <div class="footer">
-      버튼을 터치해보세요!
+  <div id="scaler">
+    <div class="container">
+      <div class="title">영원히 피고<br>지는 우리</div>
+      <div class="card-wrapper">
+        <a href="page5.html" class="card"><img src="images/s4.png" alt="s4" /></a>
+        <a href="page4.html" class="card"><img src="images/s3.png" alt="s3" /></a>
+        <a href="page2.html" class="card"><img src="images/s2.png" alt="s2" /></a>
+        <a href="page6.html" class="card"><img src="images/s5.png" alt="s5" /></a>
+        <a href="page3.html" class="card"><img src="images/s1.png" alt="s1" /></a>
+        <a href="page7.html" class="card"><img src="images/s6.png" alt="s6" /></a>
+      </div>
+      <div class="footer">버튼을 터치해보세요!</div>
     </div>
   </div>
+  <script>
+    function resizeScaler() {
+      const baseWidth = 375;
+      const baseHeight = 667;
+      const scaleX = window.innerWidth / baseWidth;
+      const scaleY = window.innerHeight / baseHeight;
+      const scale = Math.min(scaleX, scaleY);
+      const scaler = document.getElementById('scaler');
+      scaler.style.transform = `scale(${scale})`;
+      scaler.style.width = baseWidth + 'px';
+      scaler.style.height = baseHeight + 'px';
+    }
+    window.addEventListener('load', resizeScaler);
+    window.addEventListener('resize', resizeScaler);
+  </script>
 </body>
 </html>

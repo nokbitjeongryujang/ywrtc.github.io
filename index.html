@@ -38,6 +38,13 @@
       align-items: center;
     }
 
+    #scaler {
+      transform-origin: top center;
+      margin: 0 auto;
+      width: 375px;
+      height: 667px;
+    }
+
     .container {
       width: 100%;
       max-width: 480px;
@@ -90,7 +97,6 @@
       display: none;
     }
 
-    /* 공통 카드 스타일 */
     .card {
       width: 330px;
       height: 535px;
@@ -121,33 +127,29 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1 class="title">
-      읽는도시<br/>
-      읽는당신
-    </h1>
-    <p class="subtitle">
-      신화 속 동물을 따라가면 새로운 공간을 읽을 수 있어요
-    </p>
+  <div id="scaler">
+    <div class="container">
+      <h1 class="title">읽는도시<br/>읽는당신</h1>
+      <p class="subtitle">신화 속 동물을 따라가면 새로운 공간을 읽을 수 있어요</p>
 
-    <div class="slider">
-      <div class="card">
-        <img src="images/resizing_east.png" alt="East Card" id="first-card" />
+      <div class="slider">
+        <div class="card">
+          <img src="images/resizing_east.png" alt="East Card" id="first-card" />
+        </div>
+        <a href="page1.html" class="card">
+          <img src="images/resizing_south.png" alt="South Card" />
+        </a>
+        <div class="card">
+          <img src="images/resizing_west.png" alt="West Card" />
+        </div>
+        <div class="card">
+          <img src="images/resizing_north.png" alt="North Card" />
+        </div>
       </div>
-      <a href="page1.html" class="card">
-        <img src="images/resizing_south.png" alt="South Card" />
-      </a>
-      <div class="card">
-        <img src="images/resizing_west.png" alt="West Card" />
-      </div>
-      <div class="card">
-        <img src="images/resizing_north.png" alt="North Card" />
-      </div>
+
+      <p class="instruction">카드를 옆으로 넘겨보세요!</p>
     </div>
-
-    <p class="instruction">카드를 옆으로 넘겨보세요!</p>
   </div>
-
   <script>
     window.addEventListener('load', () => {
       const slider = document.querySelector('.slider');
@@ -155,6 +157,18 @@
       const offset = firstCard.offsetLeft - (slider.clientWidth - firstCard.clientWidth) / 2;
       slider.scrollTo({ left: offset, behavior: 'smooth' });
     });
+
+    function resizeScaler() {
+      const baseWidth = 375;
+      const baseHeight = 667;
+      const scaleX = window.innerWidth / baseWidth;
+      const scaleY = window.innerHeight / baseHeight;
+      const scale = Math.min(scaleX, scaleY);
+      const scaler = document.getElementById('scaler');
+      scaler.style.transform = `scale(${scale})`;
+    }
+    window.addEventListener('load', resizeScaler);
+    window.addEventListener('resize', resizeScaler);
   </script>
 </body>
 </html>

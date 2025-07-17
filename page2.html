@@ -9,32 +9,31 @@
       font-family: 'BoldDunggeunmo';
       src: url('images/BoldDunggeunmo.woff') format('woff');
     }
-
     @font-face {
       font-family: 'BookkMyungjo_Bold';
       src: url('images/BookkMyungjo_Bold.woff') format('woff');
     }
-
     @font-face {
       font-family: 'Juriche';
       src: url('images/juriche.woff') format('woff');
     }
 
-    body {
+    html, body {
       margin: 0;
       padding: 0;
-      width: 100%;
-      min-height: 100vh;
       background-image: url('images/neungbackkk.png');
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
-      font-family: 'BoldDunggeunmo', sans-serif;
-      color: #000;
-      text-align: center;
       overflow-x: hidden;
       overflow-y: auto;
-      position: relative;
+    }
+
+    #scaler {
+      transform-origin: top center;
+      margin: 0 auto;
+      width: 375px;
+      height: 667px;
     }
 
     .container {
@@ -69,10 +68,6 @@
       white-space: nowrap;
       z-index: 3;
       position: relative;
-    }
-
-    .typing-text {
-      display: inline;
     }
 
     .cursor {
@@ -177,64 +172,31 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- 상단 아이콘 -->
-    <div class="top-icons">
-      <img src="images/xbotton.png" alt="닫기 버튼" onclick="history.back();" />
-    </div>
-
-    <!-- 제목 텍스트 (타이핑) -->
-    <div class="title-text">
-      <span id="typing-title" class="typing-text"></span><span id="title-cursor" class="cursor"></span>
-    </div>
-
-    <!-- 제목 이미지 -->
-    <img class="title-img" src="images/title.png" alt="제목 배경" />
-
-    <!-- 도서 구매 / 위치 확인 버튼 -->
-    <div class="nemo-box">
-      <div class="nemo-content">
-        <a href="https://www.yes24.com/product/goods/2695015" target="_blank">
-          도서 구매
-          <img src="images/newbook.png" alt="도서구매 버튼">
-        </a>
-        <a href="https://naver.me/FJINkAmR" target="_blank">
-          놀러 가기
-          <img src="images/newpin.png" alt="위치확인 버튼">
-        </a>
+  <div id="scaler">
+    <div class="container">
+      <div class="top-icons">
+        <img src="images/xbotton.png" alt="닫기 버튼" onclick="history.back();" />
       </div>
-    </div>
-
-    <!-- 책 구절 영역 -->
-    <div class="post-box" id="post-box">
-      <div class="guide-text" id="guide-text">
-        이곳을 터치하면<br>
-        능소화폭포가 떠오르는<br>
-        책 구절을 만날 수 있어요.
+      <div class="title-text">
+        <span id="typing-title" class="typing-text"></span><span id="title-cursor" class="cursor"></span>
       </div>
-      <div class="post-text" id="post-text">
-        어둠속에서 담배를 핀다<br>
-        칠흑 같은 바다의 어둠과 침묵<br>
-        그리고 소멸하는 시간 속에서 살아오는 허무의 꽃<br>
-        꿈인지도 모른다 꿈의 꿈인지도 모른다<br>
-        몽환의 화려한 불꽃 꽃가루<br>
-        언제부턴가 눈에서 귀에서 검은 입속에서<br>
-        피어오르는 따뜻한 꽃<br>
-        웃음의 끝 울음의 끝에서 환히 피어오르는 허무의 꽃<br>
-        가슴 저 끝에 뿌리박은 듯 뻗어 올라<br>
-        가슴가득 뒤덮은 능소화<br>
-        푸른 잎 속에 피어오르는 주황빛 저 꽃<br><br>
-        &lt;능소화&gt; 윤재철 / 솔의 시인
+      <img class="title-img" src="images/title.png" alt="제목 배경" />
+      <div class="nemo-box">
+        <div class="nemo-content">
+          <a href="https://www.yes24.com/product/goods/2695015" target="_blank">도서 구매 <img src="images/newbook.png" alt="도서구매 버튼"></a>
+          <a href="https://naver.me/FJINkAmR" target="_blank">놀러 가기 <img src="images/newpin.png" alt="위치확인 버튼"></a>
+        </div>
+      </div>
+      <div class="post-box" id="post-box">
+        <div class="guide-text" id="guide-text">이곳을 터치하면<br>능소화폭포가 떠오르는<br>책 구절을 만날 수 있어요.</div>
+        <div class="post-text" id="post-text">어둠속에서 담배를 핀다<br>칠흑 같은 바다의 어둠과 침묵<br>그리고 소멸하는 시간 속에서 살아오는 허무의 꽃<br>꿈인지도 모른다 꿈의 꿈인지도 모른다<br>몽환의 화려한 불꽃 꽃가루<br>언제부턴가 눈에서 귀에서 검은 입속에서<br>피어오르는 따뜻한 꽃<br>웃음의 끝 울음의 끝에서 환히 피어오르는 허무의 꽃<br>가슴 저 끝에 뿌리박은 듯 뻗어 올라<br>가슴가득 뒤덮은 능소화<br>푸른 잎 속에 피어오르는 주황빛 저 꽃<br><br>&lt;능소화&gt; 윤재철 / 솔의 시인</div>
       </div>
     </div>
   </div>
-
-  <!-- 타이핑 + 터치 효과 -->
   <script>
     const titleText = "<능소화폭포>";
     const titleTarget = document.getElementById("typing-title");
     const cursor = document.getElementById("title-cursor");
-
     let idx = 0;
     function typeTitle() {
       if (idx < titleText.length) {
@@ -255,6 +217,18 @@
       postText.classList.add('visible');
       guideText.classList.add('hidden');
     });
+
+    function resizeScaler() {
+      const baseWidth = 375;
+      const baseHeight = 667;
+      const scaleX = window.innerWidth / baseWidth;
+      const scaleY = window.innerHeight / baseHeight;
+      const scale = Math.min(scaleX, scaleY);
+      const scaler = document.getElementById('scaler');
+      scaler.style.transform = `scale(${scale})`;
+    }
+    window.addEventListener('load', resizeScaler);
+    window.addEventListener('resize', resizeScaler);
   </script>
 </body>
 </html>
