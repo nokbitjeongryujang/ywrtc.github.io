@@ -69,12 +69,13 @@
     .card-wrapper {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1vh 2vw;
-      padding: 0 2vw;
+  row-gap: 0.5vh;     /* ✅ 세로 간격 줄임 */
+  column-gap: 2vw;    /* 좌우 간격은 그대로 유지 */
+  padding: 0 2vw;
     }
 
     .card {
-      width: 70%;
+      width: 100%;
       aspect-ratio: 1 / 1;
       border-radius: 8px;
       overflow: hidden;
