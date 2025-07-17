@@ -51,6 +51,11 @@
       margin: 0 auto;
       padding: 2vh 0;
       z-index: 1;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100vh;
     }
 
     .title {
@@ -67,11 +72,11 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 3vh 3vw;
-      border-radius: 10px;
+      justify-items: center;
     }
 
     .card {
-      width: 50%; /* 절반 크기 */
+      width: 60%; /* 확대 */
       aspect-ratio: 1 / 1;
       border-radius: 8px;
       overflow: hidden;
@@ -104,9 +109,9 @@
     .footer {
       text-align: center;
       font-family: 'juriche';
-      font-size: 3rem;
+      font-size: 1.5rem;
       color: white;
-      margin-top: 2vh;
+      margin-top: 2.3vh;
     }
 
   </style>
