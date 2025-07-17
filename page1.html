@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>영원히 피고 지는 우리</title>
   <style>
-    /* 폰트 등록 */
     @font-face {
       font-family: 'BoldDunggeunmo';
       src: url('images/BoldDunggeunmo.woff') format('woff');
@@ -28,7 +27,6 @@
       overflow-x: hidden;
     }
 
-    /* 별빛 애니메이션 */
     body::before {
       content: '';
       position: fixed;
@@ -65,8 +63,6 @@
     }
 
     .card-wrapper {
-      background: url('images/nemo.png') no-repeat center center;
-      background-size: cover;
       padding: 4vh 2vw;
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -75,7 +71,7 @@
     }
 
     .card {
-      width: 100%;
+      width: 50%; /* 절반 크기 */
       aspect-ratio: 1 / 1;
       border-radius: 8px;
       overflow: hidden;
@@ -84,7 +80,6 @@
       transform: translateY(30px);
     }
 
-    /* 카드 각각 다른 방향 애니메이션 부여 */
     .card:nth-child(1) { animation-delay: 0.2s; transform: translateX(-30px); }
     .card:nth-child(2) { animation-delay: 0.4s; transform: translateX(30px); }
     .card:nth-child(3) { animation-delay: 0.6s; transform: translateY(30px); }
@@ -109,7 +104,7 @@
     .footer {
       text-align: center;
       font-family: 'juriche';
-      font-size: 1rem;
+      font-size: 3rem;
       color: white;
       margin-top: 2vh;
     }
