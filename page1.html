@@ -3,137 +3,131 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>영원히 피고 지는 우리</title>
+  <title>카드 상세 보기</title>
+
   <style>
-    /* 폰트 등록 */
     @font-face {
       font-family: 'BoldDunggeunmo';
       src: url('images/BoldDunggeunmo.woff') format('woff');
     }
-    @font-face {
-      font-family: 'juriche';
-      src: url('images/juriche.woff') format('woff');
-    }
 
-    * {
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      height: 100%;
-      background: url('images/backgroundimagee.png') no-repeat center center fixed;
+      background-image: url('images/background1.png');
       background-size: cover;
-      overflow-x: hidden;
-    }
-
-    /* 별빛 애니메이션 */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: radial-gradient(white 1px, transparent 1px);
-      background-size: 3px 3px;
-      animation: twinkle 2s infinite;
-      opacity: 0.15;
-      z-index: 0;
-    }
-
-    @keyframes twinkle {
-      0%, 100% { opacity: 0.15; }
-      50% { opacity: 0.3; }
-    }
-
-    .container {
-      position: relative;
-      width: 100%;
-      max-width: 480px;
-      margin: 0 auto;
-      padding: 2vh 0;
-      z-index: 1;
+      background-position: center;
+      font-family: 'BoldDunggeunmo', sans-serif;
     }
 
     .title {
-      font-family: 'BoldDunggeunmo';
-      color: white;
-      font-size: 2.5rem;
       text-align: center;
-      line-height: 1.2;
-      margin-bottom: 2vh;
+      font-size: 7rem;
+      margin-top: -100vh;
+      color: #ead3be;
+      -webkit-text-stroke: 1px #000000;
     }
 
-    .card-wrapper {
-      background: url('images/nemo.png') no-repeat center center;
-      background-size: cover;
-      padding: 4vh 2vw;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3vh 3vw;
-      border-radius: 10px;
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
     }
 
-    .card {
+    .card-box {
+      position: relative;
+      width: 70vw;
+      max-width: 600px;
+    }
+
+    .card-bg {
       width: 100%;
-      aspect-ratio: 1 / 1;
-      border-radius: 8px;
-      overflow: hidden;
-      animation: slideIn 1s ease forwards;
-      opacity: 0;
-      transform: translateY(30px);
-    }
-
-    /* 카드 각각 다른 방향 애니메이션 부여 */
-    .card:nth-child(1) { animation-delay: 0.2s; transform: translateX(-30px); }
-    .card:nth-child(2) { animation-delay: 0.4s; transform: translateX(30px); }
-    .card:nth-child(3) { animation-delay: 0.6s; transform: translateY(30px); }
-    .card:nth-child(4) { animation-delay: 0.8s; transform: translateY(30px); }
-    .card:nth-child(5) { animation-delay: 1s; transform: translateX(-30px); }
-    .card:nth-child(6) { animation-delay: 1.2s; transform: translateX(30px); }
-
-    @keyframes slideIn {
-      to {
-        opacity: 1;
-        transform: translateX(0) translateY(0);
-      }
-    }
-
-    .card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
       display: block;
     }
 
-    .footer {
-      text-align: center;
-      font-family: 'juriche';
-      font-size: 1rem;
-      color: white;
-      margin-top: 2vh;
+    .card-grid {
+      position: absolute;
+      top: 6%;
+      left: 6%;
+      width: 88%;
+      height: 88%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 4%;
+      justify-content: center;
+      align-items: center;
     }
 
+    .card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    .corner-icons {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+    }
+
+    .corner-icons img {
+      width: 36px;
+      height: 36px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .title {
+        font-size: 3rem;
+        margin-top: 24vh;
+      }
+
+      .card-box {
+        width: 85vw;
+      }
+
+      .corner-icons img {
+        width: 30px;
+        height: 30px;
+      }
+    }
   </style>
 </head>
 <body>
+
+  <div class="title">영원히 피고<br>지는 우리</div>
+
   <div class="container">
-    <div class="title">
-      영원히 피고<br>지는 우리
-    </div>
+    <div class="card-box">
+      <img src="images/nemo.png" alt="배경 네모" class="card-bg">
 
-    <div class="card-wrapper">
-      <a href="page5.html" class="card"><img src="images/s4.png" alt="s4" /></a>
-      <a href="page4.html" class="card"><img src="images/s3.png" alt="s3" /></a>
-      <a href="page2.html" class="card"><img src="images/s2.png" alt="s2" /></a>
-      <a href="page6.html" class="card"><img src="images/s5.png" alt="s5" /></a>
-      <a href="page3.html" class="card"><img src="images/s1.png" alt="s1" /></a>
-      <a href="page7.html" class="card"><img src="images/s6.png" alt="s6" /></a>
-    </div>
-
-    <div class="footer">
-      버튼을 터치해보세요!
+      <div class="card-grid">
+        <a href="page2.html">
+          <img src="images/s2.png" alt="s2" class="card-img">
+        </a>
+        <a href="page4.html">
+          <img src="images/s3.png" alt="s3" class="card-img">
+        </a>
+        <a href="page3.html">
+          <img src="images/s1.png" alt="s1" class="card-img">
+        </a>
+        <a href="page5.html">
+          <img src="images/s4.png" alt="s4" class="card-img">
+        </a>
+      </div>
     </div>
   </div>
+
+  <div class="corner-icons">
+    <a href="index.html"><img src="images/xbotton.png" alt="닫기 버튼"></a>
+  </div>
+
 </body>
 </html>
