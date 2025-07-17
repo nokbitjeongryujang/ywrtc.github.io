@@ -67,9 +67,9 @@
     .subtitle {
       margin-top: 14px;
       font-family: 'BookkMyungjo', serif;
-      font-size: 1.2rem;
+      font-size: 0.9rem;
       color: #ffffff;
-      -webkit-text-stroke: 0.5px #000000;  /* 더 얇게 조정됨 */
+      -webkit-text-stroke: 0.3px #000000;
       text-shadow: 0 0 10px rgba(255,255,255,0.4);
       line-height: 0.9;
       white-space: pre-line;
@@ -90,7 +90,6 @@
       display: none;
     }
 
-    /* 이미지 크기 통일 (일반 이미지 + 링크 이미지 둘 다 포함) */
     .slider img,
     .slider a.card-link img {
       width: 65%;
@@ -105,10 +104,12 @@
     }
 
     .slider a.card-link {
+      display: flex; /* ✅ 핵심 수정 */
+      align-items: center;
+      justify-content: center;
       flex: 0 0 auto;
       scroll-snap-align: center;
       margin: 0 10px;
-      display: block;
     }
 
     .instruction {
@@ -126,8 +127,7 @@
       읽는당신
     </h1>
     <p class="subtitle">
-      신화 속 동물을 따라가면<br/>
-      새로운 공간을 읽을 수 있어요
+      신화 속 동물을 따라가면 새로운 공간을 읽을 수 있어요
     </p>
 
     <div class="slider">
