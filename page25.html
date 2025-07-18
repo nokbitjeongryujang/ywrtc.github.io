@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>서문시장</title>
+  <style>
+    @font-face {
+      font-family: 'BoldDunggeunmo';
+      src: url('images/BoldDunggeunmo.woff') format('woff');
+    }
+    @font-face {
+      font-family: 'BookkMyungjo_Bold';
+      src: url('images/BookkMyungjo_Bold.woff') format('woff');
+    }
+    @font-face {
+      font-family: 'Juriche';
+      src: url('images/juriche.woff') format('woff');
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100vh;
+      overflow-x: hidden;
+      overflow-y: auto;
+      background: url('images/seomoonback.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'BoldDunggeunmo', sans-serif;
+    }
+    #scaler {
+      width: 375px;
+      height: 667px;
+      margin: 0 auto;
+      transform-origin: top center;
+    }
+    .container {
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 16px;
+      position: relative;
+    }
+    .top-icons {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 999;
+    }
+    .top-icons img {
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+    }
+    .title-text {
+      margin-top: 50px;
+      font-size: 2.7rem;
+      color: black;
+      white-space: nowrap;
+      z-index: 3;
+      position: relative;
+    }
+    .typing-text { display: inline; }
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      height: 1em;
+      background-color: #333;
+      margin-left: 2px;
+      animation: blink 1s step-end infinite;
+      vertical-align: middle;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .malpungsun-container {
+      position: relative;
+      width: 88%;
+      max-width: 700px;
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+    .malpungsun-container img {
+      width: 88%;
+      height: auto;
+      display: block;
+    }
+    .malpungsun-content {
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -88%);
+      left: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+    .malpungsun-content a {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      color: #000;
+      font-size: 0.85rem;
+      font-family: 'BoldDunggeunmo', sans-serif;
+      white-space: nowrap;
+      pointer-events: auto;
+    }
+    .malpungsun-content a img {
+      height: 22px;
+      width: auto;
+    }
+
+    .post-box {
+      position: relative;
+      margin-top: 8px;
+      width: 90%;
+      aspect-ratio: 4 / 5;
+      background-image: url('images/postit (5).png');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .post-text,
+    .guide-text {
+      width: 85%;
+      font-size: 0.65rem;
+      line-height: 1.5;
+      text-align: center;
+      position: absolute;
+      transition: opacity 1.2s ease-in-out;
+      pointer-events: none;
+    }
+    .post-text {
+      font-family: 'BookkMyungjo_Bold', serif;
+      color: #333;
+      opacity: 0;
+    }
+    .post-text.visible { opacity: 1; }
+    .guide-text {
+      font-family: 'Juriche', sans-serif;
+      font-size: 1.1rem;
+      color: #333;
+      opacity: 1;
+      z-index: 2;
+    }
+    .guide-text.hidden { opacity: 0; }
+  </style>
+</head>
+<body>
+  <div class="top-icons">
+    <img src="images/xbotton.png" alt="닫기 버튼" onclick="history.back();" />
+  </div>
+  <div id="scaler">
+    <div class="container">
+      <div class="title-text">
+        <span id="typing-title" class="typing-text"></span><span id="title-cursor" class="cursor"></span>
+      </div>
+      <div class="malpungsun-container">
+        <img src="images/malpungsun.png" alt="말풍선 배경" />
+        <div class="malpungsun-content">
+          <a href="https://www.yes24.com/product/goods/9213713" target="_blank">
+            도서 구매
+            <img src="images/newbook.png" alt="도서구매 버튼" />
+          </a>
+          <a href="https://naver.me/GwpM3aeO" target="_blank">
+            놀러 가기
+            <img src="images/newpin.png" alt="위치확인 버튼" />
+          </a>
+        </div>
+      </div>
+      <div class="post-box" id="post-box">
+        <div class="guide-text" id="guide-text">
+          이곳을 터치하면<br>
+          서문시장이 떠오르는<br>
+          책 구절을 만날 수 있어요.
+        </div>
+        <div class="post-text" id="post-text">
+<br>
+삶의 기쁨은 바로 이곳, 과일과 채소와 소금과 기름과<br>
+향료의 색채와 냄새가 소용돌이치는 이 시장에서,<br>
+즐거운 표정들 속에서 빛난다.<br>
+기계적으로 돌아가는 슈퍼와 달리 여기서는<br>
+사람과 사람이 눈빛과 목소리와 미소로 만난다.<br>
+프로방스의 아침 시장에 우울한 얼굴은 없다.<br>
+아무도 서두르지 않는다.<br>
+버섯을 한 봉지 사면서 요리 방법을 물으면 길게 늘어선<br>
+고객들은 기다리고, 요리 강연은 길고 신명나게 이어진다.<br>
+프로방스 사투리의 진한 악센트는 감칠맛나는 덤이다.<br>
+우체국 앞 카페의 테라스에 앉아 커피를 마시는 사람들은<br>
+세상에 태어나기를 잘했다는 듯 흐뭇한 얼굴로<br>
+플라타너스 잎사귀 사이로 번뜩이는 햇빛에 한쪽 눈을 찡긋한다.<br><br>
+&lt;여름의 묘약&gt; 김화영 저 / 문학동네
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const titleText = "<서문시장>";
+    const titleTarget = document.getElementById("typing-title");
+    const cursor = document.getElementById("title-cursor");
+    let idx = 0;
+    function typeTitle() {
+      if (idx < titleText.length) {
+        titleTarget.innerHTML += titleText[idx];
+        idx++;
+        setTimeout(typeTitle, 150);
+      } else {
+        cursor.style.display = "none";
+      }
+    }
+    window.addEventListener("load", typeTitle);
+
+    const postBox = document.getElementById('post-box');
+    const postText = document.getElementById('post-text');
+    const guideText = document.getElementById('guide-text');
+    postBox.addEventListener('click', () => {
+      postText.classList.add('visible');
+      guideText.classList.add('hidden');
+    });
+
+    function resizeScaler() {
+      const baseWidth = 375;
+      const baseHeight = 667;
+      const scaleX = window.innerWidth / baseWidth;
+      const scaleY = window.innerHeight / baseHeight;
+      const scale = Math.min(scaleX, scaleY);
+      document.getElementById('scaler').style.transform = `scale(${scale})`;
+    }
+    window.addEventListener('load', resizeScaler);
+    window.addEventListener('resize', resizeScaler);
+  </script>
+</body>
+</html>
