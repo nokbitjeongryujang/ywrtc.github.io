@@ -27,7 +27,7 @@
       height: 100vh;
       overflow-x: hidden;
       overflow-y: auto;
-      background: url('images/neungbackkk.png') no-repeat center center;
+      background: url('images/neungbackkk.png') no-repeat center center fixed;
       background-size: cover;
     }
 
@@ -44,32 +44,28 @@
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
       align-items: center;
       padding: 16px;
       position: relative;
       font-family: 'BoldDunggeunmo', sans-serif;
-      color: #000;
-      text-align: center;
     }
 
     .top-icons {
       position: fixed;
       top: 10px;
       right: 10px;
-      display: flex;
-      gap: 5px;
       z-index: 999;
     }
 
     .top-icons img {
-      width: 30px;
+      width: 28px;
+      height: 28px;
       cursor: pointer;
     }
 
     .title-text {
-      margin-top: 65px;
-      font-size: 2.5rem;
+      margin-top: 50px;
+      font-size: 2.4rem;
       color: white;
       white-space: nowrap;
       z-index: 3;
@@ -94,66 +90,51 @@
       50% { opacity: 0; }
     }
 
-    .title-img {
-      margin-top: 10px;
-      width: 70%;
-      height: 70px;
-      margin-left: -1%;
+    .malpungsun-container {
       position: relative;
-      z-index: 1;
+      width: 200%; /* 가로 2배 */
+      max-width: 700px;
+      margin-top: 20px;
     }
 
-    .nemo-box {
-      position: relative;
-      z-index: 2;
+    .malpungsun-container img {
       width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: -50px;
-      margin-bottom: 16px;
+      height: auto;
+      display: block;
+      transform: scaleY(1.5); /* 세로 1.5배 */
     }
 
-    .nemo-content {
-      display: flex;
-      gap: 16px;
-    }
-
-    .nemo-button {
-      position: relative;
-      width: 160px;
-      height: 50px;
-    }
-
-    .nemo-button .background-img {
+    .malpungsun-content {
       position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      object-fit: contain;
-      z-index: 1;
-    }
-
-    .nemo-button a {
-      position: relative;
-      z-index: 2;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100%;
+      gap: 20px;
+      padding: 0 10px;
+    }
+
+    .malpungsun-content a {
+      display: flex;
+      align-items: center;
       gap: 6px;
       text-decoration: none;
-      font-family: 'BoldDunggeunmo', sans-serif;
-      font-size: 0.85rem;
       color: #000;
+      font-size: 0.9rem;
+      font-family: 'BoldDunggeunmo', sans-serif;
+      white-space: nowrap;
     }
 
-    .nemo-button a img {
+    .malpungsun-content img {
       height: 22px;
     }
 
     .post-box {
       position: relative;
-      margin-top: 24px;
+      margin-top: 32px;
       width: 90%;
       aspect-ratio: 4 / 5;
       background-image: url('images/postit (5).png');
@@ -199,6 +180,7 @@
   </style>
 </head>
 <body>
+  <!-- 닫기 버튼 -->
   <div class="top-icons">
     <img src="images/xbotton.png" alt="닫기 버튼" onclick="history.back();" />
   </div>
@@ -210,30 +192,22 @@
         <span id="typing-title" class="typing-text"></span><span id="title-cursor" class="cursor"></span>
       </div>
 
-      <!-- 타이틀 이미지 -->
-      <img class="title-img" src="images/title.png" alt="제목 배경" />
-
-      <!-- 도서 구매 / 위치 확인 버튼 -->
-      <div class="nemo-box">
-        <div class="nemo-content">
-          <div class="nemo-button">
-            <img class="background-img" src="images/malpungsun.png" alt="말풍선 배경">
-            <a href="https://www.yes24.com/product/goods/2695015" target="_blank">
-              도서 구매
-              <img src="images/newbook.png" alt="도서구매 버튼">
-            </a>
-          </div>
-          <div class="nemo-button">
-            <img class="background-img" src="images/malpungsun.png" alt="말풍선 배경">
-            <a href="https://naver.me/FJINkAmR" target="_blank">
-              놀러 가기
-              <img src="images/newpin.png" alt="위치확인 버튼">
-            </a>
-          </div>
+      <!-- 말풍선 배경 + 버튼 텍스트 -->
+      <div class="malpungsun-container">
+        <img src="images/malpungsun.png" alt="말풍선 배경" />
+        <div class="malpungsun-content">
+          <a href="https://www.yes24.com/product/goods/2695015" target="_blank">
+            도서 구매
+            <img src="images/newbook.png" alt="도서구매 버튼" />
+          </a>
+          <a href="https://naver.me/FJINkAmR" target="_blank">
+            놀러 가기
+            <img src="images/newpin.png" alt="위치확인 버튼" />
+          </a>
         </div>
       </div>
 
-      <!-- 책 구절 -->
+      <!-- 책 구절 박스 -->
       <div class="post-box" id="post-box">
         <div class="guide-text" id="guide-text">
           이곳을 터치하면<br>
@@ -258,9 +232,10 @@
     </div>
   </div>
 
+  <!-- 타이핑 + 터치 + 스케일 -->
   <script>
     // 타이핑 효과
-    const titleText = "&lt;능소화폭포&gt;";
+    const titleText = "<능소화폭포>";
     const titleTarget = document.getElementById("typing-title");
     const cursor = document.getElementById("title-cursor");
 
@@ -276,7 +251,7 @@
     }
     window.addEventListener("load", typeTitle);
 
-    // 터치 시 책 구절 보이기
+    // 책 구절 터치 효과
     const postBox = document.getElementById('post-box');
     const postText = document.getElementById('post-text');
     const guideText = document.getElementById('guide-text');
@@ -286,15 +261,14 @@
       guideText.classList.add('hidden');
     });
 
-    // 스케일 조정
+    // 스케일링
     function resizeScaler() {
       const baseWidth = 375;
       const baseHeight = 667;
       const scaleX = window.innerWidth / baseWidth;
       const scaleY = window.innerHeight / baseHeight;
       const scale = Math.min(scaleX, scaleY);
-      const scaler = document.getElementById('scaler');
-      scaler.style.transform = `scale(${scale})`;
+      document.getElementById('scaler').style.transform = `scale(${scale})`;
     }
 
     window.addEventListener('load', resizeScaler);
