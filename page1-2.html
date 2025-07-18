@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>삶의 빛과 그림자 속에서</title>
+  <style>
+    @font-face {
+      font-family: 'BoldDunggeunmo';
+      src: url('images/BoldDunggeunmo.woff') format('woff');
+    }
+    @font-face {
+      font-family: 'juriche';
+      src: url('images/juriche.woff') format('woff');
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      background: url('images/backgroundimagee.png') no-repeat center center fixed;
+      background-size: cover;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: radial-gradient(white 1px, transparent 1px);
+      background-size: 3px 3px;
+      animation: twinkle 2s infinite;
+      opacity: 0.15;
+      z-index: 0;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.15; }
+      50% { opacity: 0.3; }
+    }
+
+    #scaler {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      transform-origin: top center;
+      margin: 0 auto;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 1vh 0;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .title {
+      font-family: 'BoldDunggeunmo';
+      color: white;
+      font-size: 3.0rem;
+      text-align: center;
+      line-height: 1.2;
+      margin-bottom: 2vh;
+    }
+
+    .card-wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 1vh;
+      column-gap: 4vw;
+      padding: 0 2vw;
+    }
+
+    .card {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      justify-self: center;
+      border-radius: 8px;
+      overflow: hidden;
+      animation: slideIn 1s ease forwards;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .card:nth-child(1) { animation-delay: 0.2s; transform: translateX(-30px); }
+    .card:nth-child(2) { animation-delay: 0.4s; transform: translateX(30px); }
+    .card:nth-child(3) { animation-delay: 0.6s; transform: translateY(30px); }
+    .card:nth-child(4) { animation-delay: 0.8s; transform: translateY(30px); }
+    .card:nth-child(5) { animation-delay: 1s; transform: translateX(-30px); }
+    .card:nth-child(6) { animation-delay: 1.2s; transform: translateX(30px); }
+
+    @keyframes slideIn {
+      to {
+        opacity: 1;
+        transform: translateX(0) translateY(0);
+      }
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .footer {
+      text-align: center;
+      font-family: 'juriche';
+      font-size: 1.7rem;
+      color: white;
+      margin-top: 2vh;
+    }
+  </style>
+</head>
+<body>
+  <div id="scaler">
+    <div class="container">
+      <div class="title">삶의 빛과<br>그림자 속에서</div>
+      <div class="card-wrapper">
+        <a href="page14.html" class="card"><img src="images/s13.png" alt="s13" /></a>
+        <a href="page15.html" class="card"><img src="images/s14.png" alt="s14" /></a>
+        <a href="page16.html" class="card"><img src="images/s15.png" alt="s15" /></a>
+        <a href="page17.html" class="card"><img src="images/s16.png" alt="s16" /></a>
+        <a href="page18.html" class="card"><img src="images/s17.png" alt="s17" /></a>
+        <a href="page19.html" class="card"><img src="images/s18.png" alt="s18" /></a>
+      </div>
+      <div class="footer">버튼을 터치해보세요!</div>
+    </div>
+  </div>
+  <script>
+    function resizeScaler() {
+      const baseWidth = 375;
+      const baseHeight = 667;
+      const scaleX = window.innerWidth / baseWidth;
+      const scaleY = window.innerHeight / baseHeight;
+      const scale = Math.min(scaleX, scaleY);
+      const scaler = document.getElementById('scaler');
+      scaler.style.transform = `scale(${scale})`;
+      scaler.style.width = baseWidth + 'px';
+      scaler.style.height = baseHeight + 'px';
+    }
+    window.addEventListener('load', resizeScaler);
+    window.addEventListener('resize', resizeScaler);
+  </script>
+</body>
+</html>
