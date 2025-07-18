@@ -120,9 +120,27 @@
       color: white;
       margin-top: 2vh;
     }
+
+    .top-icons {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 999;
+    }
+
+    .top-icons img {
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
+  <!-- 닫기 버튼 -->
+  <div class="top-icons">
+    <img src="images/xbotton.png" alt="닫기 버튼" onclick="history.back();" />
+  </div>
+
   <div id="scaler">
     <div class="container">
       <div class="title">삶의 빛과<br>그림자 속에서</div>
