@@ -95,28 +95,30 @@
       width: 100%;
       max-width: 700px;
       margin-top: 20px;
+  display: flex;
+  justify-content: center; /* ✅ 중앙 정렬 */
     }
 
     .malpungsun-container img {
       width: 90%;
       height: auto;
       display: block;
-  transform: scaleY(0.65);   /* ✅ 세로 크기: 절반으로 줄임 */
-  transform-origin: top center;
     }
 
-    .malpungsun-content {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      padding: 0 10px;
-    }
+.malpungsun-content {
+  position: absolute;
+  top: 0;
+  left: 50%;               /* ✅ 중앙 정렬 시작 */
+  transform: translateX(-50%);  /* ✅ 정중앙 기준 이동 */
+  width: 90%;              /* ✅ 이미지 너비와 동일하게 맞춤 */
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 0 10px;
+  pointer-events: none;    /* 이미지 클릭 방지 */
+}
 
     .malpungsun-content a {
       display: flex;
@@ -127,9 +129,10 @@
       font-size: 0.85rem;
       font-family: 'BoldDunggeunmo', sans-serif;
       white-space: nowrap;
+  pointer-events: auto;   /* ✅ 링크는 클릭 가능해야 함 */
     }
 
-    .malpungsun-content img {
+    .malpungsun-content a img {
       height: 22px;
   width: auto;
     }
@@ -217,7 +220,7 @@
           책 구절을 만날 수 있어요.
         </div>
         <div class="post-text" id="post-text">
-          어둠속에서 담배를 핀다<br>
+          <br>어둠속에서 담배를 핀다<br>
           칠흑 같은 바다의 어둠과 침묵<br>
           그리고 소멸하는 시간 속에서 살아오는 허무의 꽃<br>
           꿈인지도 모른다 꿈의 꿈인지도 모른다<br>
