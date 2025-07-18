@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>김광석 다시 그리기길</title>
   <style>
     @font-face {
@@ -17,106 +17,106 @@
       font-family: 'Juriche';
       src: url('images/juriche.woff') format('woff');
     }
-    body {
+    html, body {
       margin: 0;
       padding: 0;
       width: 100%;
-      min-height: 100vh;
-      background-image: url('images/kimback.png');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      font-family: 'BoldDunggeunmo', sans-serif;
-      color: #000;
-      text-align: center;
+      height: 100vh;
       overflow-x: hidden;
       overflow-y: auto;
-      position: relative;
+      background: url('images/kimback.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'BoldDunggeunmo', sans-serif;
+    }
+    #scaler {
+      width: 375px;
+      height: 667px;
+      margin: 0 auto;
+      transform-origin: top center;
     }
     .container {
       width: 100%;
+      height: 100%;
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
       align-items: center;
       padding: 16px;
       position: relative;
     }
     .top-icons {
-      position: absolute;
+      position: fixed;
       top: 10px;
       right: 10px;
-      display: flex;
-      gap: 5px;
+      z-index: 999;
     }
     .top-icons img {
-      width: 8vw;
-      max-width: 30px;
+      width: 28px;
+      height: 28px;
       cursor: pointer;
     }
     .title-text {
-      margin-top: 65px;
-      font-size: 8.2vw;
+      margin-top: 50px;
+      font-size: 3.0rem;
       color: black;
       white-space: nowrap;
       z-index: 3;
       position: relative;
     }
-    .typing-text {
-      display: inline;
-    }
+    .typing-text { display: inline; }
     .cursor {
       display: inline-block;
-      width: 1.2vw;
-      height: 1.2em;
+      width: 8px;
+      height: 1em;
       background-color: #333;
       margin-left: 2px;
       animation: blink 1s step-end infinite;
       vertical-align: middle;
     }
-    @keyframes blink {
-      50% { opacity: 0; }
-    }
-    .title-img {
-      margin-top: 10px;
-      width: 70%;
-      height: 70px;
-      margin-left: -1%;
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .malpungsun-container {
       position: relative;
-      z-index: 1;
+      width: 88%;
+      max-width: 700px;
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
     }
-    .nemo-box {
-      position: relative;
-      z-index: 2;
+    .malpungsun-container img {
+      width: 88%;
+      height: auto;
+      display: block;
+    }
+    .malpungsun-content {
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -88%);
+      left: 50%;
       width: 100%;
       display: flex;
       justify-content: center;
-      align-items: center;
-      margin-top: -53px;
-      margin-bottom: 16px;
+      gap: 16px;
     }
-    .nemo-content {
-      display: flex;
-      flex-direction: row;
-      gap: 23px;
-    }
-    .nemo-content a {
+    .malpungsun-content a {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       text-decoration: none;
       color: #000;
-      font-size: 4vw;
+      font-size: 0.85rem;
       font-family: 'BoldDunggeunmo', sans-serif;
+      white-space: nowrap;
+      pointer-events: auto;
     }
-    .nemo-content img {
-      height: 6vw;
-      max-height: 28px;
+    .malpungsun-content a img {
+      height: 22px;
+      width: auto;
     }
+
     .post-box {
       position: relative;
-      margin-top: 24px;
+      margin-top: 8px;
       width: 90%;
       aspect-ratio: 4 / 5;
       background-image: url('images/postit (5).png');
@@ -129,81 +129,76 @@
     .post-text,
     .guide-text {
       width: 85%;
-      font-size: 3.0vw;
+      font-size: 0.65rem;
       line-height: 1.5;
       text-align: center;
       position: absolute;
       transition: opacity 1.2s ease-in-out;
+      pointer-events: none;
     }
     .post-text {
       font-family: 'BookkMyungjo_Bold', serif;
       color: #333;
       opacity: 0;
     }
-    .post-text.visible {
-      opacity: 1;
-    }
+    .post-text.visible { opacity: 1; }
     .guide-text {
       font-family: 'Juriche', sans-serif;
-      font-size: 5.2vw;
+      font-size: 1.1rem;
       color: #333;
       opacity: 1;
       z-index: 2;
     }
-    .guide-text.hidden {
-      opacity: 0;
-    }
+    .guide-text.hidden { opacity: 0; }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="top-icons">
-      <img src="images/xbotton.png" alt="닫기 버튼" onclick="history.back();" />
-    </div>
-    <div class="title-text">
-      <span id="typing-title" class="typing-text"></span><span id="title-cursor" class="cursor"></span>
-    </div>
-    <img class="title-img" src="images/title.png" alt="제목 배경" />
-    <div class="nemo-box">
-      <div class="nemo-content">
-        <a href="https://www.yes24.com/product/goods/104721426" target="_blank">
-          도서 구매
-          <img src="images/newbook.png" alt="도서구매 버튼">
-        </a>
-        <a href="https://naver.me/Gub1vNlT" target="_blank">
-          놀러 가기
-          <img src="images/newpin.png" alt="위치확인 버튼">
-        </a>
+  <div class="top-icons">
+    <img src="images/xbotton.png" alt="닫기 버튼" onclick="history.back();" />
+  </div>
+  <div id="scaler">
+    <div class="container">
+      <div class="title-text">
+        <span id="typing-title" class="typing-text"></span><span id="title-cursor" class="cursor"></span>
       </div>
-    </div>
-    <div class="post-box" id="post-box">
-      <div class="guide-text" id="guide-text">
-        이곳을 터치하면<br>
-        김광석 다시 그리기길이 떠오르는<br>
-        책 구절을 만날 수 있어요.
+      <div class="malpungsun-container">
+        <img src="images/malpungsun.png" alt="말풍선 배경" />
+        <div class="malpungsun-content">
+          <a href="https://www.yes24.com/product/goods/104721426" target="_blank">
+            도서 구매
+            <img src="images/newbook.png" alt="도서구매 버튼" />
+          </a>
+          <a href="https://naver.me/Gub1vNlT" target="_blank">
+            놀러 가기
+            <img src="images/newpin.png" alt="위치확인 버튼" />
+          </a>
+        </div>
       </div>
-      <div class="post-text" id="post-text">
-<br><br>
-그렇게 어떤 일은, 죽음은, 억울함은,<br>
-호소는 한없이 뒤로 밀리고 밀려<br>
-세상 밖으로 떨어지게 된다는 걸,<br>
-        그렇게 사라지지도 분해되지도 해결되지도<br>
-않은 상태로 우주를 떠돌게 된다는 걸<br>
-미래는 아직 모른다.<br>
-        영원히 몰랐으면 좋겠지만 조금씩 알게 되겠지.<br>
-그걸 알아 가는 게 살아가는 것이고,<br>
-나이를 먹는 거겠지.<br>
-        그렇다면 이것도 알게 됐으면 한다.<br>
-        세상 밖으로 밀려나는 건 온몸으로 막을 수 있다는 것,<br>
-        그리고 한 명이 막는 것보단<br>
-여러 명이 막는 게 더 좋다는 것,<br>
-        무른 흙도 밀리고 밀리다 보면<br>
-어느 순간 아주 단단해진다는 것.<br><br>
-        &lt;나인&gt; 천선란 / 창비
+      <div class="post-box" id="post-box">
+        <div class="guide-text" id="guide-text">
+          이곳을 터치하면<br>
+          김광석 다시 그리기길이 떠오르는<br>
+          책 구절을 만날 수 있어요.
+        </div>
+        <div class="post-text" id="post-text">
+          <br><br>
+저는 음악에서 그런 경험이 중요하다고 생각합니다.<br>
+휴대전화 버튼을 몇 개 누르면 쉽게 받을 수 있는<br>
+음악에는 마음이 담기지 않지요. 금방 질리고 말 거예요.<br>
+무엇이든 그렇지만, 스스로 움직이고 노력해서 얻어낸 것은<br>
+쉽게 버리거나 그만둘 수 없어요.<br>
+처음에는 다운로드해서 들어도 좋으니, 그것을 계기로<br>
+그 뮤지션의 팬이 되어 CD를 사고,<br>
+콘서트가 언제 어디에서 있는지 스스로 알아보고,<br>
+표를 사고, 들으러 가기를 바랍니다.<br>
+음악을 가장 감동적으로 듣는 방법은<br>
+그렇게 스스로 노력하는 거예요.<br>
+그렇게 하면 그 음악은 잊을 수 없게 되지요.<br><br>
+<그래서 우리는 음악을 듣는다> Hisaishi Joe, 요로 다케시 저, 이정미 역 / 현익출판
+        </div>
       </div>
     </div>
   </div>
-
   <script>
     const titleText = "<김광석 다시 그리기길>";
     const titleTarget = document.getElementById("typing-title");
@@ -227,6 +222,17 @@
       postText.classList.add('visible');
       guideText.classList.add('hidden');
     });
+
+    function resizeScaler() {
+      const baseWidth = 375;
+      const baseHeight = 667;
+      const scaleX = window.innerWidth / baseWidth;
+      const scaleY = window.innerHeight / baseHeight;
+      const scale = Math.min(scaleX, scaleY);
+      document.getElementById('scaler').style.transform = `scale(${scale})`;
+    }
+    window.addEventListener('load', resizeScaler);
+    window.addEventListener('resize', resizeScaler);
   </script>
 </body>
 </html>

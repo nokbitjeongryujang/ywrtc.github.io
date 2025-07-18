@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>대구수목원</title>
   <style>
     @font-face {
@@ -17,106 +17,106 @@
       font-family: 'Juriche';
       src: url('images/juriche.woff') format('woff');
     }
-    body {
+    html, body {
       margin: 0;
       padding: 0;
       width: 100%;
-      min-height: 100vh;
-      background-image: url('images/sumockwonbackk.png');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      font-family: 'BoldDunggeunmo', sans-serif;
-      color: #000;
-      text-align: center;
+      height: 100vh;
       overflow-x: hidden;
       overflow-y: auto;
-      position: relative;
+      background: url('images/sumockwonbackk.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'BoldDunggeunmo', sans-serif;
+    }
+    #scaler {
+      width: 375px;
+      height: 667px;
+      margin: 0 auto;
+      transform-origin: top center;
     }
     .container {
       width: 100%;
+      height: 100%;
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
       align-items: center;
       padding: 16px;
       position: relative;
     }
     .top-icons {
-      position: absolute;
+      position: fixed;
       top: 10px;
       right: 10px;
-      display: flex;
-      gap: 5px;
+      z-index: 999;
     }
     .top-icons img {
-      width: 8vw;
-      max-width: 30px;
+      width: 28px;
+      height: 28px;
       cursor: pointer;
     }
     .title-text {
-      margin-top: 65px;
-      font-size: 10vw;
+      margin-top: 50px;
+      font-size: 3.2rem;
       color: black;
       white-space: nowrap;
       z-index: 3;
       position: relative;
     }
-    .typing-text {
-      display: inline;
-    }
+    .typing-text { display: inline; }
     .cursor {
       display: inline-block;
-      width: 1.2vw;
-      height: 1.2em;
+      width: 8px;
+      height: 1em;
       background-color: #333;
       margin-left: 2px;
       animation: blink 1s step-end infinite;
       vertical-align: middle;
     }
-    @keyframes blink {
-      50% { opacity: 0; }
-    }
-    .title-img {
-      margin-top: 10px;
-      width: 70%;
-      height: 70px;
-      margin-left: -1%;
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .malpungsun-container {
       position: relative;
-      z-index: 1;
+      width: 88%;
+      max-width: 700px;
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
     }
-    .nemo-box {
-      position: relative;
-      z-index: 2;
+    .malpungsun-container img {
+      width: 88%;
+      height: auto;
+      display: block;
+    }
+    .malpungsun-content {
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -88%);
+      left: 50%;
       width: 100%;
       display: flex;
       justify-content: center;
-      align-items: center;
-      margin-top: -53px;
-      margin-bottom: 16px;
+      gap: 16px;
     }
-    .nemo-content {
-      display: flex;
-      flex-direction: row;
-      gap: 23px;
-    }
-    .nemo-content a {
+    .malpungsun-content a {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       text-decoration: none;
       color: #000;
-      font-size: 4vw;
+      font-size: 0.85rem;
       font-family: 'BoldDunggeunmo', sans-serif;
+      white-space: nowrap;
+      pointer-events: auto;
     }
-    .nemo-content img {
-      height: 6vw;
-      max-height: 28px;
+    .malpungsun-content a img {
+      height: 22px;
+      width: auto;
     }
+
     .post-box {
       position: relative;
-      margin-top: 24px;
+      margin-top: 8px;
       width: 90%;
       aspect-ratio: 4 / 5;
       background-image: url('images/postit (5).png');
@@ -129,76 +129,74 @@
     .post-text,
     .guide-text {
       width: 85%;
-      font-size: 2.9vw;
+      font-size: 0.65rem;
       line-height: 1.5;
       text-align: center;
       position: absolute;
       transition: opacity 1.2s ease-in-out;
+      pointer-events: none;
     }
     .post-text {
       font-family: 'BookkMyungjo_Bold', serif;
       color: #333;
       opacity: 0;
     }
-    .post-text.visible {
-      opacity: 1;
-    }
+    .post-text.visible { opacity: 1; }
     .guide-text {
       font-family: 'Juriche', sans-serif;
-      font-size: 5.2vw;
+      font-size: 1.1rem;
       color: #333;
       opacity: 1;
       z-index: 2;
     }
-    .guide-text.hidden {
-      opacity: 0;
-    }
+    .guide-text.hidden { opacity: 0; }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="top-icons">
-      <img src="images/xbotton.png" alt="닫기 버튼" onclick="history.back();" />
-    </div>
-    <div class="title-text">
-      <span id="typing-title" class="typing-text"></span><span id="title-cursor" class="cursor"></span>
-    </div>
-    <img class="title-img" src="images/title.png" alt="제목 배경" />
-    <div class="nemo-box">
-      <div class="nemo-content">
-        <a href="https://www.yes24.com/product/goods/118597564" target="_blank">
-          도서 구매
-          <img src="images/newbook.png" alt="도서구매 버튼">
-        </a>
-        <a href="https://naver.me/F5D76B9r" target="_blank">
-          놀러 가기
-          <img src="images/newpin.png" alt="위치확인 버튼">
-        </a>
+  <div class="top-icons">
+    <img src="images/xbotton.png" alt="닫기 버튼" onclick="history.back();" />
+  </div>
+  <div id="scaler">
+    <div class="container">
+      <div class="title-text">
+        <span id="typing-title" class="typing-text"></span><span id="title-cursor" class="cursor"></span>
       </div>
-    </div>
-    <div class="post-box" id="post-box">
-      <div class="guide-text" id="guide-text">
-        이곳을 터치하면<br>
-        대구수목원이 떠오르는<br>
-        책 구절을 만날 수 있어요.
+      <div class="malpungsun-container">
+        <img src="images/malpungsun.png" alt="말풍선 배경" />
+        <div class="malpungsun-content">
+          <a href="https://www.yes24.com/product/goods/118597564" target="_blank">
+            도서 구매
+            <img src="images/newbook.png" alt="도서구매 버튼" />
+          </a>
+          <a href="https://naver.me/F5D76B9r" target="_blank">
+            놀러 가기
+            <img src="images/newpin.png" alt="위치확인 버튼" />
+          </a>
+        </div>
       </div>
-      <div class="post-text" id="post-text">
-        식물은 죽지 않아, 소마.<br>
-끊임없이 순환하며 새 모습으로 계속 재탄생해.<br>
-        하지만 그건 식물에만 국한된 것이 아니라,<br>
-이 행성의 시스템이야.<br>
-        모든 생명은 탄생과 죽음을 반복하고<br>
-그 과정에서 자신의 삶을 씨앗처럼 뿌린다는 걸,<br>
-        비록 나는 없더라도 내 삶은 이 행성 전체에 퍼져<br>
-다른 생명을 꽃피우게 한다는 걸 잊지 마.<br>
-        미안해. 내가 너한테 해줄 수 있는 게 이런 말뿐이야.<br>
-        그래도 기억해줘. 이 말을 너한테 꼭 해주고 싶었어.<br>
-흙이 무너지던 순간에 말이야.<br><br>
-        &lt;이끼숲&gt; 천선란 / 자이언트북스
+      <div class="post-box" id="post-box">
+        <div class="guide-text" id="guide-text">
+          이곳을 터치하면<br>
+          대구수목원이 떠오르는<br>
+          책 구절을 만날 수 있어요.
+        </div>
+        <div class="post-text" id="post-text">
+          식물은 죽지 않아, 소마.<br>
+          끊임없이 순환하며 새 모습으로 계속 재탄생해.<br>
+          하지만 그건 식물에만 국한된 것이 아니라,<br>
+          이 행성의 시스템이야.<br>
+          모든 생명은 탄생과 죽음을 반복하고<br>
+          그 과정에서 자신의 삶을 씨앗처럼 뿌린다는 걸,<br>
+          비록 나는 없더라도 내 삶은 이 행성 전체에 퍼져<br>
+          다른 생명을 꽃피우게 한다는 걸 잊지 마.<br>
+          미안해. 내가 너한테 해줄 수 있는 게 이런 말뿐이야.<br>
+          그래도 기억해줘. 이 말을 너한테 꼭 해주고 싶었어.<br>
+          흙이 무너지던 순간에 말이야.<br><br>
+          &lt;이끼숲&gt; 천선란 / 자이언트북스
+        </div>
       </div>
     </div>
   </div>
-
   <script>
     const titleText = "<대구수목원>";
     const titleTarget = document.getElementById("typing-title");
@@ -222,6 +220,17 @@
       postText.classList.add('visible');
       guideText.classList.add('hidden');
     });
+
+    function resizeScaler() {
+      const baseWidth = 375;
+      const baseHeight = 667;
+      const scaleX = window.innerWidth / baseWidth;
+      const scaleY = window.innerHeight / baseHeight;
+      const scale = Math.min(scaleX, scaleY);
+      document.getElementById('scaler').style.transform = `scale(${scale})`;
+    }
+    window.addEventListener('load', resizeScaler);
+    window.addEventListener('resize', resizeScaler);
   </script>
 </body>
 </html>
