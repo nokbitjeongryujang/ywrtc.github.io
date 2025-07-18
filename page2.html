@@ -65,7 +65,7 @@
 
     .title-text {
       margin-top: 50px;
-      font-size: 2.4rem;
+      font-size: 2.6rem;
       color: white;
       white-space: nowrap;
       z-index: 3;
@@ -98,9 +98,11 @@
     }
 
     .malpungsun-container img {
-      width: 100%;
+      width: 90%;
       height: auto;
       display: block;
+  transform: scaleY(0.65);   /* ✅ 세로 크기: 절반으로 줄임 */
+  transform-origin: top center;
     }
 
     .malpungsun-content {
@@ -148,7 +150,7 @@
     .post-text,
     .guide-text {
       width: 85%;
-      font-size: 0.6rem;
+      font-size: 0.75rem;
       line-height: 1.5;
       text-align: center;
       position: absolute;
