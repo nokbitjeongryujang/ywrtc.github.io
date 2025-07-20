@@ -24,16 +24,7 @@
       height: 100%;
       background: url('images/backgroundimagee.png') no-repeat center center fixed;
       background-size: cover;
-      font-size: 16px;
       overflow-x: hidden;
-    }
-
-    body {
-      font-family: 'BoldDunggeunmo', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
     }
 
     body::before {
@@ -53,44 +44,47 @@
       50% { opacity: 0.3; }
     }
 
+    #scaler {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      transform-origin: top center;
+      margin: 0 auto;
+    }
+
     .container {
       width: 100%;
       max-width: 480px;
       margin: 0 auto;
-      padding: 2vh 2vw;
+      padding: 1vh 0;
       z-index: 1;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
       min-height: 100vh;
     }
 
-    .title-wrapper {
-      height: 90px; /* 고정 px 높이로 여유 공간 확보 */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
     .title {
+      font-family: 'BoldDunggeunmo';
       color: white;
-      font-size: 18px; /* px로 고정 */
+      font-size: 3.0rem;
       text-align: center;
       line-height: 1.2;
+      margin-bottom: 2vh;
     }
 
     .card-wrapper {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1.5vh 4vw;
-      width: 100%;
-      margin-top: 20px;
+      row-gap: 1vh;
+      column-gap: 4vw;
+      padding: 0 2vw;
     }
 
     .card {
       width: 100%;
       aspect-ratio: 1 / 1;
+      justify-self: center;
       border-radius: 8px;
       overflow: hidden;
       animation: slideIn 1s ease forwards;
@@ -122,9 +116,9 @@
     .footer {
       text-align: center;
       font-family: 'juriche';
-      font-size: 8px; /* px로 고정 */
+      font-size: 1.7rem;
       color: white;
-      margin-top: 20px;
+      margin-top: 2vh;
     }
 
     .top-icons {
@@ -147,21 +141,34 @@
     <img src="images/xbotton.png" alt="닫기 버튼" onclick="history.back();" />
   </div>
 
-  <div class="container">
-    <div class="title-wrapper">
+  <div id="scaler">
+    <div class="container">
       <div class="title">유한한 세계<br>무한한 존재</div>
+      <div class="card-wrapper">
+        <a href="page8.html" class="card"><img src="images/s7.png" alt="s7" /></a>
+        <a href="page9.html" class="card"><img src="images/s8.png" alt="s8" /></a>
+        <a href="page10.html" class="card"><img src="images/s9.png" alt="s9" /></a>
+        <a href="page11.html" class="card"><img src="images/s10.png" alt="s10" /></a>
+        <a href="page12.html" class="card"><img src="images/s11.png" alt="s11" /></a>
+        <a href="page13.html" class="card"><img src="images/s12.png" alt="s12" /></a>
+      </div>
+      <div class="footer">버튼을 터치해보세요!</div>
     </div>
-
-    <div class="card-wrapper">
-      <a href="page8.html" class="card"><img src="images/s7.png" alt="s7" /></a>
-      <a href="page9.html" class="card"><img src="images/s8.png" alt="s8" /></a>
-      <a href="page10.html" class="card"><img src="images/s9.png" alt="s9" /></a>
-      <a href="page11.html" class="card"><img src="images/s10.png" alt="s10" /></a>
-      <a href="page12.html" class="card"><img src="images/s11.png" alt="s11" /></a>
-      <a href="page13.html" class="card"><img src="images/s12.png" alt="s12" /></a>
-    </div>
-
-    <div class="footer">버튼을 터치해보세요!</div>
   </div>
+  <script>
+    function resizeScaler() {
+      const baseWidth = 375;
+      const baseHeight = 667;
+      const scaleX = window.innerWidth / baseWidth;
+      const scaleY = window.innerHeight / baseHeight;
+      const scale = Math.min(scaleX, scaleY);
+      const scaler = document.getElementById('scaler');
+      scaler.style.transform = `scale(${scale})`;
+      scaler.style.width = baseWidth + 'px';
+      scaler.style.height = baseHeight + 'px';
+    }
+    window.addEventListener('load', resizeScaler);
+    window.addEventListener('resize', resizeScaler);
+  </script>
 </body>
 </html>
