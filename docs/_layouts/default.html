@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% if page.title %}{{ page.title }} · {% endif %}녹빛정류장</title>
+
+  <!-- 공통 CSS -->
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+
+  <!-- GA/GTM 등 공통 스니펫은 여기에 -->
+  {% include analytics.html %}
+
+  <!-- 페이지별로 head에 넣고 싶은 게 있으면 옵션으로 삽입 -->
+  {{ page.head }}
+</head>
+<body>
+  <header>
+    {% include header.html %}
+  </header>
+
+  <main id="content">
+    {{ content }}  <!-- 각 페이지의 본문이 여기에 들어감 -->
+  </main>
+
+  <footer>
+    {% include footer.html %}
+  </footer>
+
+  <!-- 공통 JS -->
+  <script src="{{ '/assets/app.js' | relative_url }}"></script>
+</body>
+</html>
