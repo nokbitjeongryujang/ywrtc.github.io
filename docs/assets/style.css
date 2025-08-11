@@ -1,0 +1,121 @@
+@font-face {
+  font-family: 'BoldDunggeunmo';
+  src: url('../images/BoldDunggeunmo.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BookkMyungjo';
+  src: url('../images/BookkMyungjo_Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: url('../images/new_backgroundimage.png') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'BookkMyungjo', serif;
+  overflow-y: auto;  /* ✅ 수정: 스크롤 허용 */
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#scaler {
+  transform-origin: top center;
+  margin: 0 auto;
+  width: 375px;
+  height: 667px;
+}
+
+.container {
+  width: 100%;
+  max-width: 480px;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@keyframes float {
+  0%   { transform: translateY(-5px); }
+  100% { transform: translateY(5px); }
+}
+
+.title {
+  font-family: 'BoldDunggeunmo', sans-serif;
+  font-size: 3.3rem;
+  line-height: 1.2;
+  color: #55316e;
+  -webkit-text-stroke: 1px #c9eafa;
+  animation: float 3s ease-in-out infinite alternate;
+  text-align: center;
+}
+
+.subtitle {
+  margin-top: 14px;
+  font-family: 'BookkMyungjo', serif;
+  font-size: 0.9rem;
+  color: #ffffff;
+  -webkit-text-stroke: 0.3px #000000;
+  text-shadow: 0 0 10px rgba(255,255,255,0.4);
+  line-height: 0.9;
+  white-space: pre-line;
+}
+
+.slider {
+  margin-top: 19px;
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  width: 330px;
+  height: 535px;
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
+
+.instruction {
+  margin-top: 20px;
+  font-family: 'BoldDunggeunmo', sans-serif;
+  font-size: 1.3rem;
+  color: #c2c2c2;
+}
